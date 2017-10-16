@@ -1,0 +1,39 @@
+@import "../variable/color";
+@import "../minix/px-to-rem";
+
+.form-item {
+  height: tr(100px);
+  border-bottom: tr(1px) solid $cl-gray-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $cl-gray-dark;
+  &--checkbox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+//font-size
+.form-item{
+  font-size: 15px;
+  &--checkbox {
+    font-size: 13px;
+  }
+}
+[data-dpr="2"]{
+  .form-item{
+    font-size: 30px;
+    &--checkbox {
+      font-size: 26px;
+    }
+  }
+}
+[data-dpr="3"]{
+  .form-item{
+    font-size: 45px;
+    &--checkbox {
+      font-size: 39px;
+    }
+  }
+}

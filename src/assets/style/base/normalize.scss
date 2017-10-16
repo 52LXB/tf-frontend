@@ -1,0 +1,107 @@
+@import "~@/assets/style/out-import";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: PingFangSC-Regular,-apple-system-font,"Helvetica Neue", source-han-sans-simplified-c, sans-serif;
+  font-weight: 400;
+  line-height: 1.25;
+  min-height: 100%;
+  background: #f7f7f7;
+}
+body {
+  margin: 0;
+}
+a{
+  text-decoration: none;
+  color: inherit !important;
+  &:active{
+    background-color: transparent !important;
+  }
+}
+input {
+  box-sizing: border-box;
+  text-indent: tr(20px);
+  color: $cl-black;
+  outline: none;
+  text-indent: tr(20px);
+  border: none;
+  &::-webkit-input-placeholder {
+    color: $cl-gray-light;
+  }
+  &:-moz-placeholder {
+    color: $cl-gray-light;
+  }
+  &::-moz-placeholder {
+    color: $cl-gray-light;
+  }
+  &:-ms-input-placeholder {
+    color: $cl-gray-light;
+  }
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  box-sizing: border-box;
+  width: tr(30px);
+  height: tr(30px);
+  background: white;
+  margin: 0;
+  border: tr(1px) solid $cl-sliver-light;
+  outline: none;
+}
+
+ //清除button和input的浏览器默认样式
+input, button{
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #333;
+}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  outline:none;
+
+  -webkit-appearance: button;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+div, a, img {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+/* 重置placeholder颜色 */
+@mixin placeholder-color($color: $cl-gray-light) {
+  ::-webkit-input-placeholder { color: $color !important; }
+  ::-moz-placeholder { color: $color !important; opacity: 1 !important; }
+  :-moz-placeholder { color: $color !important; opacity: 1 !important; }
+  :-ms-input-placeholder { color: $color !important; }
+  ::placeholder { color: $color !important; }
+  .placeholder { color: $color !important; }
+}
+@include placeholder-color($cl-gray-light);

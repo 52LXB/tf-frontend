@@ -1,0 +1,25 @@
+@import "~@/assets/style/out-import";
+
+.login-input {
+  input {
+    height: tr(86px);
+    border: tr(1px) solid $cl-sliver-light;
+    margin-bottom: tr(40px);
+  }
+
+  //字体
+  input {
+    font-size: 15px;
+  }
+  [data-dpr="2"]{
+    input {
+      font-size: 30px;
+    }
+  }
+  [data-dpr="3"]{
+    input {
+      font-size: 45px;
+    }
+  }
+}
+

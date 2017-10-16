@@ -1,0 +1,24 @@
+@import "../out-import";
+
+.weui-cells {
+  margin-top: 0 !important;
+  &:before{
+    border-top: none !important;
+  }
+  .weui-cell{
+    padding: tr(30px) 0 !important;
+    .vux-label{
+      color: $cl-gray-dark !important;
+    }
+    .weui-cell__ft *{
+      color: $cl-gray-dark !important;
+      text-align: right !important;
+    }
+  }
+}
+
+.vux-cell--no-border .vux-cell-box{
+  &:before, &:after{
+    border: none !important;
+  }
+}

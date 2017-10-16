@@ -1,0 +1,45 @@
+@import "../variable/color";
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $cl-primary;
+  color: $cl-white;
+  border: none;
+  outline: none;
+  &--sm{
+    height: .93rem;
+  }
+  &--md{
+    height: 1.17rem;
+    border-radius: 0.053rem;
+  }
+  &--lg{
+    height: 1.17rem;
+    border-radius: 0.053rem;
+  }
+}
+
+.btn--lg{
+  font-size: 18px;
+}
+.bt--md {
+  font-size: 15px;
+}
+[data-dpr="2"]{
+  .btn--lg {
+    font-size: 36px;
+  }
+  .bt--md {
+    font-size: 30px;
+  }
+}
+[data-dpr="3"]{
+  .btn--lg {
+    font-size: 54px;
+  }
+  .bt--md {
+    font-size: 45px;
+  }
+}
