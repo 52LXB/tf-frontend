@@ -31,15 +31,15 @@
           <div class="page__content__card__img">
             <img src="../assets/img/index/index_institution.jpg"/>
           </div>
-            <div class="fx-column-align-center icon--top">
-              <div class="page__content__card__icon fx-center">
-                <div class="icon__inner fx-center">
-                  <i class="iconfont icon-yuanjiaojuxing fz-36 cl-primary"></i>
-                </div>
+          <div class="fx-column-align-center icon--top">
+            <div class="page__content__card__icon fx-center">
+              <div class="icon__inner icon__inner--cl-primary fx-center">
+                <i class="iconfont icon-yuanjiaojuxing fz-36 cl-primary"></i>
               </div>
-              <div class="page__content__card__icon-text fz-15">教育机构</div>
             </div>
-            <div class="page__content__button fx-space-around">
+            <div class="page__content__card__icon-text fz-30">教育机构</div>
+          </div>
+          <div class="page__content__card__button fx-space-around">
               <tf-button type="primary-plain" size="xsm">教师招聘</tf-button>
               <tf-button type="primary-plain" size="xsm">PTF解决方案</tf-button>
               <tf-button type="primary-plain" size="xsm">会员介绍</tf-button>
@@ -48,32 +48,36 @@
         <div class="page__content__card">
           <div class="page__content__card__img">
             <img src="../assets/img/index/index_candidate.jpg"/>
-            <div class="fx-justify-center">
-              <div class="page__content__card__icon">
-                <i class="iconfont icon-qiuzhizhe"></i>
-                <span class="page__content__card__icon__text">求职者</span>
+          </div>
+          <div class="fx-column-align-center icon--top">
+            <div class="page__content__card__icon fx-center">
+              <div class="icon__inner icon__inner--cl-red fx-center">
+                <i class="iconfont icon-yuanjiaojuxing fz-36 cl-red-light"></i>
               </div>
             </div>
-            <div class="page__content__button fx-space-around">
-              <tf-button type="red-plain" size="xsm">PTF解决方案</tf-button>
-              <tf-button type="red-plain" size="xsm">教师培训</tf-button>
-            </div>
+            <div class="page__content__card__icon-text fz-30">求职者</div>
+          </div>
+          <div class="page__content__card__button fx-space-around">
+            <tf-button type="red-plain" size="xsm">我要求职</tf-button>
+            <tf-button type="red-plain" size="xsm">教师培训</tf-button>
           </div>
         </div>
         <div class="page__content__card">
           <div class="page__content__card__img">
             <img src="../assets/img/index/1_1index_08.jpg"/>
-            <div class="fx-justify-center">
-              <div class="page__content__card__icon">
-                <i class="iconfont icon-shouye_ziyuaneps"></i>
-                <span class="page__content__card__icon__text">更多</span>
+          </div>
+          <div class="fx-column-align-center icon--top">
+            <div class="page__content__card__icon fx-center">
+              <div class="icon__inner icon__inner--cl-yellow fx-center">
+                <i class="iconfont icon-yuanjiaojuxing fz-36 cl-yellow"></i>
               </div>
             </div>
-            <div class="page__content__button fx-space-around">
-              <tf-button type="yellow-plain" size="xsm">教育资源</tf-button>
-              <tf-button type="yellow-plain" size="xsm">近期活动</tf-button>
-              <tf-button type="yellow-plain" size="xsm">教育之行</tf-button>
-            </div>
+            <div class="page__content__card__icon-text fz-30">更多</div>
+          </div>
+          <div class="page__content__card__button fx-space-around">
+            <tf-button type="yellow-plain" size="xsm">教育资源</tf-button>
+            <tf-button type="yellow-plain" size="xsm">近期活动</tf-button>
+            <tf-button type="yellow-plain" size="xsm">教育之行</tf-button>
           </div>
         </div>
       </div>
@@ -92,9 +96,9 @@
       <div class="page__comment fx-justify-center">
         <img src="http://fakeimg.pl/750x720/000033/"/>
       </div>
-      <div class="page__footer fx-space-around">
-        <mt-button type="default">关于我们</mt-button>
-        <mt-button type="default">联系我们</mt-button>
+      <div class="page__footer fx-align-center">
+        <p class="fx-center fz-26 flex1">关于我们</p>
+        <p class="fx-center fz-26 flex1">联系我们</p>
       </div>
     </tf-wrapper>
   </div>
@@ -128,6 +132,9 @@
         }
       }
       &__card {
+        padding-bottom: tr(60px);
+        margin-bottom: tr(40px);
+        box-shadow: 0 tr(10px) tr(10px) tr(3px) $cl-sliver-light;
         &__img {
           img {
             width: tr(670px);
@@ -143,13 +150,23 @@
             width: tr(104px);
             height: tr(104px);
             border-radius: 100%;
-            &--color {
+            &--cl-primary {
               border: tr(1px) solid $cl-primary;
+            }
+            &--cl-red {
+              border: tr(1px) solid $cl-red-light;
+            }
+            &--cl-yellow {
+              border: tr(1px) solid $cl-yellow;
             }
           }
         }
         .icon--top {
           margin-top: tr(-59px);
+        }
+        &__icon-text {
+          margin: tr(24px) 0 tr(37px);
+          color: $cl-black;
         }
       }
     }
@@ -167,6 +184,22 @@
         height: tr(720px);
       }
     }
+    &__footer {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: $layer-index-45;
+      color: $cl-white;
+      height: tr(86px);
+      background: rgba(51, 51, 51, 0.8);
+      p {
+        line-height: tr(34px);
+        height: tr(34px);
+      }
+     :first-child {
+       border-right: tr(1px) solid rgba(204, 204, 204, 0.4);
+     }
+    }
   }
-
 </style>
