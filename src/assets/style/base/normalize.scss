@@ -21,40 +21,8 @@ a{
     background-color: transparent !important;
   }
 }
-input {
-  box-sizing: border-box;
-  text-indent: tr(20px);
-  color: $cl-black;
-  outline: none;
-  text-indent: tr(20px);
-  border: none;
-  &::-webkit-input-placeholder {
-    color: $cl-gray-light;
-  }
-  &:-moz-placeholder {
-    color: $cl-gray-light;
-  }
-  &::-moz-placeholder {
-    color: $cl-gray-light;
-  }
-  &:-ms-input-placeholder {
-    color: $cl-gray-light;
-  }
-}
-
-input[type="checkbox"] {
-  display: inline-block;
-  box-sizing: border-box;
-  width: tr(30px);
-  height: tr(30px);
-  background: white;
-  margin: 0;
-  border: tr(1px) solid $cl-sliver-light;
-  outline: none;
-}
-
- //清除button和input的浏览器默认样式
-input, button{
+// 清除button和input的浏览器默认样式
+input, textarea, button{
   background: none;
   border: 0;
   color: inherit;
@@ -63,30 +31,29 @@ input, button{
   overflow: visible;
   padding: 0;
   outline: none;
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
 }
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-  -webkit-text-fill-color: #333;
+input, textarea{
+  -webkit-appearance: none;
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #333;
+  }
 }
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
+
 button {
   -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  outline:none;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+          outline:none;
 
   -webkit-appearance: button;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-input::-moz-focus-inner,
-button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+     -moz-user-select: none;
+      -ms-user-select: none;
 }
 
 div, a, img {

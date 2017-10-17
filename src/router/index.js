@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/pages/home'
-import homeMenu from '@/pages/home-menu'
 import login from '@/pages/login/index'
 import loginForgetPassword from '@/pages/login/forget-password'
 import loginResetPassword from '@/pages/login/reset-password'
@@ -38,11 +37,6 @@ export default new Router({
       path: '/',
       name: 'home',
       component: home
-    },
-    {
-      path: '/home/menu',
-      name: 'home-menu',
-      component: homeMenu
     },
     {
       path: '/login',

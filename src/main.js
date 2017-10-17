@@ -15,13 +15,19 @@ import tfWrapper from '@/components/public/tf-wrapper'
 import tfTopbar from '@/components/public/tf-topbar'
 import tfTopbarMenu from '@/components/public/tf-topbar-menu'
 import tfHeader from '@/components/public/tf-header'
+
 import tfButton from '@/components/widget/tf-button'
+import tfInput from '@/components/widget/tf-input'
+import tfTextarea from '@/components/widget/tf-textarea'
 
 Vue.component(tfWrapper.name, tfWrapper)
 Vue.component(tfTopbar.name, tfTopbar)
 Vue.component(tfTopbarMenu.name, tfTopbarMenu)
 Vue.component(tfHeader.name, tfHeader)
+
 Vue.component(tfButton.name, tfButton)
+Vue.component(tfInput.name, tfInput)
+Vue.component(tfTextarea.name, tfTextarea)
 
 Vue.config.productionTip = false
 

@@ -1,14 +1,18 @@
 <template>
   <div>
-    <tf-button type="primary" @click.native="showPopup = true">显示popup</tf-button>
-    <br>
     <mt-cell-swipe :right="swipeRight">
       <div slot="title" class="custom-cell__title">
         <p>小明</p>
         <small>TOFEL教师</small>
       </div>
     </mt-cell-swipe>
-    
+    <br>
+    <tf-button type="primary" @click.native="showPopup = true">显示popup</tf-button>
+    <br>
+    <tf-input type="text" v-model="inputVal" placeholder="input"></tf-input>
+    <tf-textarea type="text" v-model="inputVal" placeholder="textarea"></tf-textarea>
+    <tf-textarea type="text" v-model="inputVal" placeholder="无边框textarea" :no-border="true"></tf-textarea>
+
     <div v-transfer-dom>
       <popup v-model="showPopup" position="left" width="100%">
         <div class="popup-demo">
@@ -33,8 +37,8 @@
     },
     data () {
       return {
+        inputVal: '',
         showPopup: false,
-        swipeText: '测试测试测试测试测试测试测试测试',
         swipeRight: [{
           content: '已录用',
           style: { background: '#7DA027' },
