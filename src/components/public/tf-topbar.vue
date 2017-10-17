@@ -3,7 +3,7 @@
     <div class="tf-topbar__left flex1" @click="showTfTopbarMenu = true">
       <i class="iconfont icon-menu fz-48 cl-gray"></i>
     </div>
-    <div class="tf-topbar__logo fx-center flex3">
+    <div class="tf-topbar__logo fx-center flex3" @click="$router.push('/')">
       <img src="../../assets/img/common/header_logo.png"/>
     </div>
     <div class="tf-topbar__right flex1">

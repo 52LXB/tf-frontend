@@ -40,7 +40,7 @@
             <div class="page__content__card__icon-text fz-30">教育机构</div>
           </div>
           <div class="page__content__card__button fx-space-around">
-              <tf-button type="primary-plain" size="xsm">教师招聘</tf-button>
+              <tf-button type="primary-plain" size="xsm" @click.native="$router.push('/candidates')">教师招聘</tf-button>
               <tf-button type="primary-plain" size="xsm">PTF解决方案</tf-button>
               <tf-button type="primary-plain" size="xsm">会员介绍</tf-button>
             </div>
