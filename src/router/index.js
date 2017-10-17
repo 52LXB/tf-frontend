@@ -26,6 +26,7 @@ import institutionCenterPreview from '@/pages/center/institution/preview'
 import job from '@/pages/job/index'      // [职位主页]
 import jobPreview from '@/pages/job/preview'      // [职位预览页]
 import jobShow from '@/pages/job/show'      // [职位展示页]
+import candidates from '@/pages/candidates/index'      // [推荐教师主页]
 
 import demo from '@/pages/demo'
 
@@ -162,6 +163,11 @@ export default new Router({
       path: '/job/show',
       name: 'job-show',
       component: jobShow
+    },
+    {
+      path: '/candidates',
+      name: 'candidates',
+      component: candidates
     },
     {
       path: '/demo',

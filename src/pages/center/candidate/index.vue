@@ -1,94 +1,103 @@
 <template>
-  <div class="page fx-column fz-30">
-    <tf-topbar></tf-topbar>
-    <div class="page__content">
-      <div class="top">
-        <div class="fx-center">
-          <div class="top__avatar">
-            <img src="http://fakeimg.pl/130x130/"/>
-            <i class="iconfont icon-xiugai fz-48 cl-red-light" @click="$router.push('/center/candidate/resume')"></i>
+  <div class="page fz-30">
+    <tf-topbar>
+    </tf-topbar>
+    <tf-wrapper>
+      <div class="page__content">
+        <div class="top">
+          <div class="fx-center">
+            <div class="top__avatar">
+              <img src="http://fakeimg.pl/130x130/"/>
+              <i class="iconfont icon-xiugai fz-48 cl-red-light" @click="$router.push('/center/candidate/resume')"></i>
+            </div>
+          </div>
+          <div class="top__name fx-center fz-36 cl-white-dark">
+            求职者名字
+          </div>
+          <div class="top__menu fx-space-around">
+            <div class="top__menu__item" @click="$router.push('/center/candidate/resume')">
+              <i class="iconfont icon-jianli fz-62"></i>
+              <div>我的简历</div>
+            </div>
+            <div class="top__menu__item">
+              <i class="iconfont icon-zhiwei fz-62"></i>
+              <div>求职管理</div>
+            </div>
+            <div class="top__menu__item">
+              <i class="iconfont icon-zuji fz-62"></i>
+              <div>收藏足迹</div>
+            </div>
           </div>
         </div>
-        <div class="top__name fx-center fz-36 cl-white-dark">
-          求职者名字
-        </div>
-        <div class="top__menu fx-space-around">
-          <div class="top__menu__item" @click="$router.push('/center/candidate/resume')">
-            <i class="iconfont icon-jianli fz-62"></i>
-            <div>我的简历</div>
+        <div class="list">
+          <div class="list__item">
+            <div class="fx-align-center">
+              <i class="iconfont icon-gailan cl-green fz-62"></i>
+              <span class="list__item__text">概览</span>
+            </div>
+            <i class="iconfont icon-back-right cl-sliver fz-36"></i>
           </div>
-          <div class="top__menu__item">
-            <i class="iconfont icon-zhiwei fz-62"></i>
-            <div>求职管理</div>
+          <div class="list__item">
+            <div class="fx-align-center">
+              <i class="iconfont icon-wodexiaoxi cl-red-light fz-62"></i>
+              <span class="list__item__text">我的消息</span>
+              <i class="iconfont icon-iconfontyuandian cl-red"></i>
+            </div>
+            <i class="iconfont icon-back-right cl-sliver fz-36"></i>
           </div>
-          <div class="top__menu__item">
-            <i class="iconfont icon-zuji fz-62"></i>
-            <div>收藏足迹</div>
+          <div class="list__item">
+            <div class="fx-align-center">
+              <i class="iconfont icon-wodezhanghu cl-yellow fz-62"></i>
+              <span class="list__item__text">我的账户</span>
+            </div>
+            <i class="iconfont icon-back-right cl-sliver fz-36"></i>
+          </div>
+          <div class="list__item">
+            <div class="fx-align-center">
+              <i class="iconfont icon-yinsishezhi cl-bule fz-62"></i>
+              <span class="list__item__text">隐私设置</span>
+            </div>
+            <i class="iconfont icon-back-right cl-sliver fz-36"></i>
+          </div>
+          <div class="list__item">
+            <div class="fx-align-center">
+              <i class="iconfont icon-wodedingyue cl-orange fz-62"></i>
+              <span class="list__item__text">我的订阅</span>
+            </div>
+            <i class="iconfont icon-back-right cl-sliver fz-36"></i>
+          </div>
+          <div class="list__item">
+            <div class="fx-align-center">
+              <i class="iconfont icon-wodeshezhi cl-green-dark fz-62"></i>
+              <span class="list__item__text">账号设置</span>
+            </div>
+            <i class="iconfont icon-back-right cl-sliver fz-36"></i>
+          </div>
+          <div class="list__item">
+            <div class="fx-align-center">
+              <i class="iconfont icon-xiugaimima cl-purple fz-62"></i>
+              <span class="list__item__text">修改密码</span>
+            </div>
+            <i class="iconfont icon-back-right cl-sliver fz-36"></i>
           </div>
         </div>
       </div>
-      <div class="list">
-        <div class="list__item">
-          <div class="fx-align-center">
-            <i class="iconfont icon-gailan cl-green fz-62"></i>
-            <span class="list__item__text">概览</span>
-          </div>
-          <i class="iconfont icon-back-right cl-sliver fz-36"></i>
-        </div>
-        <div class="list__item">
-          <div class="fx-align-center">
-            <i class="iconfont icon-wodexiaoxi cl-red-light fz-62"></i>
-            <span class="list__item__text">我的消息</span>
-            <i class="iconfont icon-iconfontyuandian cl-red"></i>
-          </div>
-          <i class="iconfont icon-back-right cl-sliver fz-36"></i>
-        </div>
-        <div class="list__item">
-          <div class="fx-align-center">
-            <i class="iconfont icon-wodezhanghu cl-yellow fz-62"></i>
-            <span class="list__item__text">我的账户</span>
-          </div>
-          <i class="iconfont icon-back-right cl-sliver fz-36"></i>
-        </div>
-        <div class="list__item">
-          <div class="fx-align-center">
-            <i class="iconfont icon-yinsishezhi cl-bule fz-62"></i>
-            <span class="list__item__text">隐私设置</span>
-          </div>
-          <i class="iconfont icon-back-right cl-sliver fz-36"></i>
-        </div>
-        <div class="list__item">
-          <div class="fx-align-center">
-            <i class="iconfont icon-wodedingyue cl-orange fz-62"></i>
-            <span class="list__item__text">我的订阅</span>
-          </div>
-          <i class="iconfont icon-back-right cl-sliver fz-36"></i>
-        </div>
-        <div class="list__item">
-          <div class="fx-align-center">
-            <i class="iconfont icon-wodeshezhi cl-green-dark fz-62"></i>
-            <span class="list__item__text">账号设置</span>
-          </div>
-          <i class="iconfont icon-back-right cl-sliver fz-36"></i>
-        </div>
-        <div class="list__item">
-          <div class="fx-align-center">
-            <i class="iconfont icon-xiugaimima cl-purple fz-62"></i>
-            <span class="list__item__text">修改密码</span>
-          </div>
-          <i class="iconfont icon-back-right cl-sliver fz-36"></i>
-        </div>
-      </div>
-    </div>
+    </tf-wrapper>
   </div>
 </template>
 
 <script>
-  import Topbar from '@/components/topbar.vue'
+  import { Cell, Group, PopupPicker, Popup, TransferDom } from 'vux'
 
   export default {
+    directives: {
+      TransferDom
+    },
     components: {
-      'tf-topbar': Topbar
+      Group,
+      Cell,
+      PopupPicker,
+      Popup
     }
   }
 </script>
