@@ -1,6 +1,14 @@
 <template>
   <div>
     <tf-button @click.native="showPopup = true" >提交</tf-button>
+    <br>
+    <mt-cell-swipe :right="swipeRight">
+      <div slot="title" class="custom-cell__title">
+        <p>小明</p>
+        <small>TOFEL教师</small>
+      </div>
+    </mt-cell-swipe>
+    
     <div v-transfer-dom>
       <popup v-model="showPopup" position="left" width="100%">
         <div class="popup-demo">
@@ -45,19 +53,59 @@
 
 <script>
   import { TransferDom, Popup } from 'vux'
+  import { CellSwipe } from 'mint-ui'
 
   export default {
     directives: {
       TransferDom
     },
     components: {
-      Popup
+      Popup,
+      CellSwipe
     },
     data () {
       return {
-        showPopup: false
+        showPopup: false,
+        swipeText: '测试测试测试测试测试测试测试测试',
+        swipeRight: [{
+          content: '已录用',
+          style: { background: '#7DA027' },
+          handler: () => this.one()
+        }, {
+          content: '不合适',
+          style: { background: '#C0C0C0' },
+          handler: () => this.two()
+        }, {
+          content: '面试邀请',
+          style: { background: '#F1CA14' },
+          handler: () => this.thr()
+        }, {
+          content: '删除',
+          style: { background: '#FF3B3B' },
+          handler: () => this.four()
+        }, {
+          content: '发offer',
+          style: { background: '#FF8E3B' },
+          handler: () => this.five()
+        }]
       }
     },
-    methods: {}
+    methods: {
+      one () {
+        alert('已录用')
+      },
+      two () {
+        alert('不合适')
+      },
+      thr () {
+        alert('面试邀请')
+      },
+      four () {
+        alert('删除')
+      },
+      five () {
+        alert('发offer')
+      }
+    }
   }
 </script>
