@@ -9,9 +9,17 @@
     <br>
     <tf-button type="primary" @click.native="showPopup = true">显示popup</tf-button>
     <br>
-    <tf-input type="text" v-model="inputVal" placeholder="input"></tf-input>
-    <tf-textarea type="text" v-model="inputVal" placeholder="textarea"></tf-textarea>
-    <tf-textarea type="text" v-model="inputVal" placeholder="无边框textarea" :no-border="true"></tf-textarea>
+    <tf-input 
+      type="text"
+      v-model="inputVal" 
+      placeholder="input"></tf-input>
+    <tf-textarea 
+      v-model="inputVal" 
+      placeholder="textarea"></tf-textarea>
+    <tf-textarea 
+      v-model="inputVal" 
+      placeholder="无边框textarea" 
+      :no-border="true"></tf-textarea>
 
     <div v-transfer-dom>
       <popup v-model="showPopup" position="left" width="100%">
