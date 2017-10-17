@@ -1,0 +1,23 @@
+@import "../out-import";
+@import "../layout/flexbox";
+
+.mint-cell-swipe {
+	.mint-cell-wrapper {
+		height: tr(190px);
+		box-sizing: border-box;
+		background-image: none;
+	}
+	.mint-cell-right {
+		.mint-cell-swipe-buttongroup {
+			color: $cl-white;
+			@extend .fx-center;
+			.mint-cell-swipe-button{
+				@extend .fx-center;
+				width: tr(120px);
+				padding: 0;
+				font-size: 12px;
+				box-sizing: border-box;
+			}
+		}	
+	}
+}
