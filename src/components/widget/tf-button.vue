@@ -39,9 +39,6 @@
     box-sizing: border-box;
     text-align: center;
     display: inline-block;
-    &[disabled='disabled'] {
-      @include set-btn-style($cl-gray, $cl-gray, $cl-white);
-    }
     &.xsm {
       width: tr(177px);
       height: tr(56px);
@@ -96,6 +93,10 @@
       &:active {
         @include set-btn-style($cl-yellow, $cl-white, $cl-yellow);
       }
+    }
+
+    &[disabled='disabled'] {
+      @include set-btn-style($cl-gray, $cl-gray, $cl-white);
     }
   }
 </style>

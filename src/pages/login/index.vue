@@ -48,13 +48,7 @@
 </template>
 
 <script>
-  export default {
-    methods: {
-      aa () {
-        console.log('aa')
-      }
-    }
-  }
+  export default {}
 </script>
 
 <style lang="scss" scoped>

@@ -7,7 +7,8 @@
       </div>
     </mt-cell-swipe>
     <br>
-    <tf-button type="primary" @click.native="showPopup = true">显示popup</tf-button>
+    <tf-button @click.native="showPopup = true">显示popup</tf-button>
+    <tf-button @click.native="showDialog = true">显示dialog</tf-button>
     <br>
     <tf-input 
       type="text"
@@ -28,11 +29,24 @@
         </div>
       </popup>
     </div>
+
+    <div v-transfer-dom>
+      <x-dialog v-model="showDialog">
+        <tf-dialog-body 
+          type="fail"
+          title="发送失败" 
+          @on-close="showDialog = false">
+          <div slot="content">
+            哇哦<br>消息发送失败咯
+          </div>
+        </tf-dialog-body>
+      </x-dialog>
+    </div>
   </div>
 </template>
 
 <script>
-  import { TransferDom, Popup } from 'vux'
+  import { TransferDom, Popup, XDialog } from 'vux'
   import { CellSwipe } from 'mint-ui'
 
   export default {
@@ -41,11 +55,13 @@
     },
     components: {
       Popup,
-      CellSwipe
+      CellSwipe,
+      XDialog
     },
     data () {
       return {
         inputVal: '',
+        showDialog: false,
         showPopup: false,
         swipeRight: [{
           content: '已录用',
