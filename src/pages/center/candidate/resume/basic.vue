@@ -2,11 +2,11 @@
   <div class="page">
     <tf-header></tf-header>
     <tf-wrapper>
-      <div class="page__content">
+      <div class="page__content ">
         <!--姓名-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>姓名
             </span>
             <span slot="default">
@@ -16,8 +16,8 @@
         </group>
         <!--性别-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>性别
             </span>
             <span slot="default" >
@@ -26,8 +26,8 @@
         </group>
         <!--生日-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>生日
             </span>
             <span slot="default" >
@@ -36,8 +36,8 @@
         </group>
         <!--国籍-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>国籍
             </span>
             <span slot="default" >
@@ -45,19 +45,21 @@
           </cell>
         </group>
         <!--学历-->
-        <group>
-          <cell>
-            <span slot="title" class="fz-30">
+        <group @click.native="showEducationType = true">
+          <cell is-link class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>学历
             </span>
-            <span slot="default" >
+            <span slot="default" class="vux-cell--no-border">
+              <popup-picker :show.sync="showEducationType" :show-cell="false" :columns="1" :data="educationTypeList" v-model="educationTypeVal"></popup-picker>
+              {{ educationTypeSelectedName }}
             </span>
           </cell>
         </group>
         <!--手机-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>手机
             </span>
             <span slot="default">
@@ -67,8 +69,8 @@
         </group>
         <!--邮箱-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>邮箱
             </span>
             <span slot="default">
@@ -77,29 +79,32 @@
           </cell>
         </group>
         <!--婚姻状态-->
-        <group>
-          <cell>
-            <span slot="title" class="fz-30">
+        <group @click.native="showMarryType = true">
+          <cell is-link class="fz-30">
+            <span slot="title">
               <span>&nbsp;&nbsp;</span>婚姻状态
             </span>
-            <span slot="default" >
+            <span slot="default" class="vux-cell--no-border">
+              <popup-picker :show.sync="showMarryType" :show-cell="false" :columns="1" :data="marryTypeList" v-model="marryTypeVal"></popup-picker>
+              {{ marryTypeSelectedName }}
             </span>
           </cell>
         </group>
         <!--所在城市-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span class="cl-red-light">*&nbsp;</span>所在城市
             </span>
-            <span slot="default" >
+            <span slot="default">
+              <input placeholder="请输入您所在的城市" />
             </span>
           </cell>
         </group>
         <!--地址-->
-        <group>
-          <cell>
-            <span slot="title" class="fz-30">
+        <group @click.native="showAddress = true">
+          <cell is-link class="fz-30">
+            <span slot="title">
               <span class="cl-red-light">*&nbsp;</span>地址
             </span>
             <span slot="default" >
@@ -108,28 +113,30 @@
         </group>
         <!--facebook-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title" >
               <span>&nbsp;&nbsp;</span>facebook
             </span>
             <span slot="default" >
+              <input placeholder="请输入您的facebook" />
             </span>
           </cell>
         </group>
         <!--skpye-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span>&nbsp;&nbsp;</span>skpye
             </span>
             <span slot="default" >
+               <input placeholder="请输入您的skpye" />
             </span>
           </cell>
         </group>
         <!--健康检查-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span>&nbsp;&nbsp;</span>健康检查
             </span>
             <span slot="default" >
@@ -138,8 +145,8 @@
         </group>
         <!--是否犯罪证明-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span>&nbsp;&nbsp;</span>是否犯罪证明
             </span>
             <span slot="default" >
@@ -148,14 +155,22 @@
         </group>
         <!--工作许可证-->
         <group>
-          <cell>
-            <span slot="title" class="fz-30">
+          <cell class="fz-30">
+            <span slot="title">
               <span class="cl-red-light">*&nbsp;</span>工作许可证
             </span>
             <span slot="default" >
             </span>
           </cell>
         </group>
+        <!--地址-->
+        <div v-transfer-dom>
+          <popup v-model="showAddress" position="right" width="100%">
+            <tf-text-page customEventLeft="true" v-on:on-left-click="showAddress = false" title="地址">
+              <span slot="tf-header__right" class="fz-30">保存</span>
+            </tf-text-page>
+          </popup>
+        </div>
         <tf-button type="primary" size="lg" class="gap-16">保存</tf-button>
       </div>
     </tf-wrapper>
@@ -178,11 +193,62 @@
     computed: {
       name () {
         return this.candidateForm.first_name + ' ' + this.candidateForm.last_name
+      },
+      marryTypeSelectedName () {
+        return this.marryTypeList.find(elem => {
+          return elem.value === this.marryTypeVal[0]
+        }).name
+      },
+      educationTypeSelectedName () {
+        return this.educationTypeList.find(elem => {
+          return elem.value === this.educationTypeVal[0]
+        }).name
       }
     },
     data () {
       return {
         showGender: false,
+        showAddress: false,
+        showMarryType: false,
+        showEducationType: false,
+        marryTypeVal: ['96'],
+        educationTypeVal: ['0'],
+        marryTypeList: [
+          {
+            value: '96',
+            name: '单身'
+          },
+          {
+            value: '97',
+            name: '结婚'
+          },
+          {
+            value: '98',
+            name: '离异'
+          },
+          {
+            value: '99',
+            name: '丧偶'
+          },
+          {
+            value: '100',
+            name: '其它'
+          }
+        ],
+        educationTypeList: [
+          {
+            value: '0',
+            name: '学历一'
+          },
+          {
+            value: '2',
+            name: '学历二'
+          },
+          {
+            value: '3',
+            name: '学历三'
+          }
+        ],
         candidateForm: {
           'resume_id': 3,
           'first_name': 'first_name',

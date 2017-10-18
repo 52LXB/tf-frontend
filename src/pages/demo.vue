@@ -20,7 +20,8 @@
     <tf-textarea
       v-model="inputVal"
       placeholder="无边框textarea"
-      :no-border="true"></tf-textarea>
+      :no-border="true">
+    </tf-textarea>
 
     <div v-transfer-dom>
       <popup v-model="showPopup" position="left" width="100%">

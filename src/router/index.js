@@ -16,9 +16,6 @@ import candidateCenter from '@/pages/center/candidate/index'
 import candidateCenterResume from '@/pages/center/candidate/resume/index'            // [简历主页]
 import candidateCenterResumeBasic from '@/pages/center/candidate/resume/basic'       // [简历基础信息]
 import candidateCenterResumeObjective from '@/pages/center/candidate/resume/objective'    // [简历objective]
-import candidateCenterResumeEducation from '@/pages/center/candidate/resume/education'    // [简历教育背景]
-import candidateCenterResumeExperience from '@/pages/center/candidate/resume/experience'  // [简历工作经历]
-import candidateCenterResumeCertificate from '@/pages/center/candidate/resume/certificate'  // [简历技能技术]
 import candidateCenterResumePreview from '@/pages/center/candidate/resume/preview'         // [简历预览]
 import institutionCenter from '@/pages/center/institution/index'
 import institutionCenterEdit from '@/pages/center/institution/edit'
@@ -114,21 +111,6 @@ export default new Router({
       path: '/center/candidate/resume/objective',
       name: 'candidate-center-resume-objective',
       component: candidateCenterResumeObjective
-    },
-    {
-      path: '/center/candidate/resume/education',
-      name: 'candidate-center-resume-education',
-      component: candidateCenterResumeEducation
-    },
-    {
-      path: '/center/candidate/resume/experience',
-      name: 'candidate-center-resume-experience',
-      component: candidateCenterResumeExperience
-    },
-    {
-      path: '/center/candidate/resume/certificate',
-      name: 'candidate-center-resume-certificate',
-      component: candidateCenterResumeCertificate
     },
     {
       path: '/center/candidate/resume/preview',

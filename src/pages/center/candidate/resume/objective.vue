@@ -5,34 +5,34 @@
       <div class="page__content">
         <!--期望职位类型-->
         <group @click.native="showJobType = true">
-          <cell is-link>
-            <span slot="title" class="fz-30">
+          <cell is-link  class="fz-30">
+            <span slot="title">
               <span>&nbsp;&nbsp;</span>期望职位类型
             </span>
-            <span slot="default" class="vux-cell--no-border fz-30">
+            <span slot="default" class="vux-cell--no-border">
               <popup-picker :show.sync="showJobType" :show-cell="false" :columns="1" :data="JobTypeList" v-model="JobTypeSelectedVal"></popup-picker>
-              {{JobTypeSelectedName}}
+              {{jobTypeSelectedName}}
             </span>
           </cell>
         </group>
         <!--期望工作地点-->
         <group @click.native="showJobLocation = true">
-          <cell is-link>
-            <span slot="title" class="fz-30">
+          <cell is-link class="fz-30">
+            <span slot="title">
               <span>&nbsp;&nbsp;</span>期望工作地点
             </span>
-            <span slot="default" class="vux-address fz-30">
+            <span slot="default" class="vux-address">
               <x-address v-model="addressValue" raw-value :list="addressData" value-text-align="left"></x-address>
             </span>
           </cell>
         </group>
         <!--期望薪水-->
         <group @click.native="showSalaryType = true">
-          <cell is-link>
-            <span slot="title" class="fz-30">
+          <cell is-link class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>期望薪水
             </span>
-            <span slot="default" class="vux-cell--no-border fz-30">
+            <span slot="default" class="vux-cell--no-border">
               <popup-picker :show.sync="showSalaryType" :show-cell="false" :columns="1" :data="salaryTypeList" v-model="salaryTypeSelectedVal"></popup-picker>
               {{ salaryTypeSelectedName }}
             </span>
@@ -40,11 +40,11 @@
         </group>
         <!--职位属性-->
         <group @click.native="showJobPropertyType = true">
-          <cell is-link>
-            <span slot="title" class="fz-30">
+          <cell is-link class="fz-30">
+            <span slot="title" >
               <span class="cl-red">*&nbsp;</span>职位属性
             </span>
-            <span slot="default" class="vux-cell--no-border fz-30">
+            <span slot="default" class="vux-cell--no-border">
               <popup-picker :show.sync="showJobPropertyType" :show-cell="false" :columns="1" :data="jobPropertyTypeList" v-model="jobPropertyTypeVal"></popup-picker>
               {{ jobPropertyTypeSelectedName }}
             </span>
@@ -52,11 +52,11 @@
         </group>
         <!--到岗时间-->
         <group @click.native="showAvailabilitylType = true">
-          <cell is-link>
-            <span slot="title" class="fz-30">
+          <cell is-link class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>到岗时间
             </span>
-            <span slot="default" class="vux-cell--no-border fz-30">
+            <span slot="default" class="vux-cell--no-border">
               <popup-picker :show.sync="showAvailabilitylType" :show-cell="false" :columns="1" :data="availabilityTypeList" v-model="availabilityTypeVal"></popup-picker>
               {{ availabilityTypeSelectedName }}
             </span>
@@ -64,11 +64,11 @@
         </group>
         <!--目前工作状态-->
         <group @click.native="showJobStatusType = true">
-          <cell is-link>
-            <span slot="title" class="fz-30">
+          <cell is-link class="fz-30">
+            <span slot="title">
               <span class="cl-red">*&nbsp;</span>目前工作状态
             </span>
-            <span slot="default" class="vux-cell--no-border fz-30">
+            <span slot="default" class="vux-cell--no-border">
               <popup-picker :show.sync="showJobStatusType" :show-cell="false" :columns="1" :data="jobStatusTypeList" v-model="jobStatusTypeVal"></popup-picker>
               {{ jobStatusTypeSelectedName }}
             </span>
@@ -251,7 +251,7 @@
       }
     },
     computed: {
-      JobTypeSelectedName () {
+      jobTypeSelectedName () {
         return this.JobTypeList.find(elem => {
           return elem.value === this.jobTypeSelectedVal[0]
         }).name
