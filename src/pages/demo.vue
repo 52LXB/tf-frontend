@@ -20,6 +20,11 @@
         </div>
       </popup>
     </div>
+
+    <group>
+      <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" @on-shadow-change="onShadowChange" placeholder="请选择地址" inline-desc="可以设置placeholder" :show.sync="showAddress"></x-address>
+      <cell title="上面value值" :value="value"></cell>
+    </group>
   </div>
 </template>
 

@@ -29,6 +29,7 @@ import jobShow from '@/pages/job/show'      // [职位展示页]
 import candidates from '@/pages/candidates/index'      // [推荐教师主页]
 
 import demo from '@/pages/demo'
+import demo2 from '@/pages/demo2'
 
 Vue.use(Router)
 
@@ -173,6 +174,11 @@ export default new Router({
       path: '/demo',
       name: 'demo',
       component: demo
+    },
+    {
+      path: '/demo2',
+      name: 'demo2',
+      component: demo2
     }
   ]
 })

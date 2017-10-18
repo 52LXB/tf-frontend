@@ -4,39 +4,69 @@
       <span slot="tf-header__right" class="fz-30" @click="$router.push('/center/candidate/resume/preview')">预览</span>
     </tf-header>
     <tf-wrapper>
-      <div class="page__content join-mint-cell">
-        <group @click.native="showPopupSchoolIntro = true">
+      <div class="page__content">
+        <group @click.native="$router.push('/center/candidate/resume/basic')">
           <cell is-link>
             <span slot="title" class="fz-30">
-              学校简介
+              基础消息
             </span>
             <span slot="default"></span>
           </cell>
         </group>
-      </div>
-      <div class="page__content join-mint-cell" v-show="false">
-        <mt-cell title="基础消息">
-          <i class="iconfont icon-back-right" @click="$router.push('/center/candidate/resume/basic')"></i>
-        </mt-cell>
-        <mt-cell title="Objective">
-          <i class="iconfont icon-back-right" @click="$router.push('/center/candidate/resume/objective')"></i>
-        </mt-cell>
-        <mt-cell title="教育背景">
-          <i class="iconfont icon-back-right" @click="$router.push('/center/candidate/resume/education')"></i>
-        </mt-cell>
-        <mt-cell title="工作背景">
-          <i class="iconfont icon-back-right" @click="$router.push('/center/candidate/resume/experience')"></i>
-        </mt-cell>
-        <mt-cell title="技能技术">
-          <i class="iconfont icon-back-right" @click="$router.push('/center/candidate/resume/certificate')"></i>
-        </mt-cell>
+
+        <group @click.native="$router.push('/center/candidate/resume/objective')">
+          <cell is-link>
+            <span slot="title" class="fz-30">
+              Objective
+            </span>
+            <span slot="default"></span>
+          </cell>
+        </group>
+
+        <group @click.native="$router.push('/center/candidate/resume/education')">
+          <cell is-link>
+            <span slot="title" class="fz-30">
+              教育背景
+            </span>
+            <span slot="default"></span>
+          </cell>
+        </group>
+
+        <group @click.native="$router.push('/center/candidate/resume/experience')">
+          <cell is-link>
+            <span slot="title" class="fz-30">
+              工作背景
+            </span>
+            <span slot="default"></span>
+          </cell>
+        </group>
+
+        <group @click.native="$router.push('/center/candidate/resume/certificate')">
+          <cell is-link>
+            <span slot="title" class="fz-30">
+              技能技术
+            </span>
+            <span slot="default"></span>
+          </cell>
+        </group>
       </div>
     </tf-wrapper>
   </div>
 </template>
 
 <script>
+  import { Cell, Group, PopupPicker, Popup, TransferDom } from 'vux'
+
   export default {
+    directives: {
+      TransferDom
+    },
+    components: {
+      Group,
+      Cell,
+      PopupPicker,
+      Popup
+    }
   }
 </script>
 

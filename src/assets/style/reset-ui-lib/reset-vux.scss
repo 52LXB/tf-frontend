@@ -22,3 +22,21 @@
     border: none !important;
   }
 }
+.vux-address {
+  &:after {
+    content: none !important;
+  }
+  .vux-cell-box {
+    &:before, &:after {
+      content: none;
+      border: none !important;
+    }
+    .weui-cell_access {
+      padding: 0 !important;
+    }
+  }
+  .weui-cell_access .weui-cell__ft {
+    &:before, &:after {
+    }
+  }
+}

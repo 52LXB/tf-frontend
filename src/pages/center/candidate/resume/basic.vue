@@ -1,73 +1,179 @@
 <template>
   <div class="page">
-    <tf-deputy-topbar title="基础消息"></tf-deputy-topbar>
-    <div class="page__content join-mint-cell">
-      <mt-field label="姓名" placeholder="请输入您的姓名" v-model="name"></mt-field>
-      <mt-cell title="性别">
-        <div class="mt-cell-radio cl-black">
-          <i class="iconfont icon-yuanhuan"></i>男
-          <i class="iconfont icon-xuanzeqiyuanhuan"></i>女
-        </div>
-      </mt-cell>
-      <mt-cell title="生日">
-        <div class="mint-cell-value-text">{{candidateForm.birthday}}</div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <mt-cell title="国籍">
-        <div class="mint-cell-value-text">{{candidateForm.nationality.nationality_name}}</div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <mt-cell title="学历">
-        <div class="mint-cell-value-text">{{candidateForm.education.education_name}}</div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <mt-field class="need" label="手机" placeholder="请输入您的手机号" type="tel" v-model="candidateForm.phone"></mt-field>
-      <mt-field label="邮箱" placeholder="请输入您的邮箱" type="email" v-model="candidateForm.email"></mt-field>
-      <mt-cell title="婚姻状态">
-        <div class="mt-cell-radio cl-black">
-          <i class="iconfont icon-yuanhuan"></i>已婚
-          <i class="iconfont icon-xuanzeqiyuanhuan"></i>未婚
-        </div>
-      </mt-cell>
-      <mt-cell title="所在城市">
-        <div class="mint-cell-value-text">{{candidateForm.address}}</div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <mt-cell title="地址">
-        <div class="mint-cell-value-text">{{candidateForm.address}}</div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <mt-cell title="facebook">
-        <div class="mint-cell-value-text">{{candidateForm.faceBook}}</div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <mt-cell title="skpye">
-        <div class="mint-cell-value-text">{{candidateForm.skpye}}</div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <mt-cell title="健康检查">
-        <div class="mint-cell-value-text">{{candidateForm.health_check}}</div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <mt-cell title="是否犯罪证明">
-        <div class="mint-cell-value-text">{{candidateForm.criminal_check}}</div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <mt-cell title="工作许可证">
-        <div class="mint-cell-value-text"></div>
-        <i class="iconfont icon-back-right" @click="$router.push('/join/candidate/certificate')"></i>
-      </mt-cell>
-      <button class="page__content__button btn btn--lg" @click="$router.push('/join/check-email')">立即注册</button>
-    </div>
+    <tf-header></tf-header>
+    <tf-wrapper>
+      <div class="page__content">
+        <!--姓名-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>姓名
+            </span>
+            <span slot="default">
+              <input type="text" placeholder="请输入您的姓名" v-model="name"/>
+            </span>
+          </cell>
+        </group>
+        <!--性别-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>性别
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--生日-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>生日
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--国籍-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>国籍
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--学历-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>学历
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--手机-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>手机
+            </span>
+            <span slot="default">
+              <input type="number" placeholder="请输入您的手机号" v-model="candidateForm.phone"/>
+            </span>
+          </cell>
+        </group>
+        <!--邮箱-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>邮箱
+            </span>
+            <span slot="default">
+              <input type="email" placeholder="请输入您的邮箱" v-model="candidateForm.email"/>
+            </span>
+          </cell>
+        </group>
+        <!--婚姻状态-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span>&nbsp;&nbsp;</span>婚姻状态
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--所在城市-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red-light">*&nbsp;</span>所在城市
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--地址-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red-light">*&nbsp;</span>地址
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--facebook-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span>&nbsp;&nbsp;</span>facebook
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--skpye-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span>&nbsp;&nbsp;</span>skpye
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--健康检查-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span>&nbsp;&nbsp;</span>健康检查
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--是否犯罪证明-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span>&nbsp;&nbsp;</span>是否犯罪证明
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <!--工作许可证-->
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red-light">*&nbsp;</span>工作许可证
+            </span>
+            <span slot="default" >
+            </span>
+          </cell>
+        </group>
+        <tf-button type="primary" size="lg" class="gap-16">保存</tf-button>
+      </div>
+    </tf-wrapper>
   </div>
 </template>
 
 <script>
-  import deputyTopbar from '@/components/deputy-topbar.vue'
+  import { Cell, Group, PopupPicker, Popup, TransferDom } from 'vux'
 
   export default {
+    directives: {
+      TransferDom
+    },
     components: {
-      'tf-deputy-topbar': deputyTopbar
+      Group,
+      Cell,
+      PopupPicker,
+      Popup
     },
     computed: {
       name () {
@@ -76,6 +182,7 @@
     },
     data () {
       return {
+        showGender: false,
         candidateForm: {
           'resume_id': 3,
           'first_name': 'first_name',
@@ -154,9 +261,6 @@
   @import "~@/assets/style/out-import";
 
   .page {
-    width: 10rem;
-    min-height: 100vh;
-    background: $cl-white;
     &__content {
       padding: tr(15px) tr(30px) tr(80px);
       &__button {

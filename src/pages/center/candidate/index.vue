@@ -87,19 +87,6 @@
 </template>
 
 <script>
-  import { Cell, Group, PopupPicker, Popup, TransferDom } from 'vux'
-
-  export default {
-    directives: {
-      TransferDom
-    },
-    components: {
-      Group,
-      Cell,
-      PopupPicker,
-      Popup
-    }
-  }
 </script>
 
 <style lang="scss" scoped>
