@@ -6,7 +6,12 @@
     <div class="tf-dialog__body">
       <div class="tf-dialog__body-icon">
         <slot name="icon">
-          <img src="http://placehold.it/250x196">
+          <template v-if="type === 'success'">
+            <img src="../../assets/img/icon-dialog-success.png"/>
+          </template>
+          <template v-if="type === 'fail'">
+            <img src="../../assets/img/icon-dialog-fail.png"/>
+          </template>
         </slot>
       </div>
       <div class="tf-dialog__body-msg">

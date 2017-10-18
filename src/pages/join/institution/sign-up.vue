@@ -1,16 +1,91 @@
 <template>
-  <div class="page">
-    <tf-deputy-topbar title="注册"></tf-deputy-topbar>
+  <div>
+    <tf-header title="注册"></tf-header>
+    <tf-wrapper>
+      <div class="sign-up__content">
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>邮箱
+            </span>
+            <span slot="default">
+              <input type="email" placeholder="请输入您的邮箱"/>
+            </span>
+          </cell>
+        </group>
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>密码
+            </span>
+            <span slot="default">
+              <input type="password" placeholder="请输入您的密码"/>
+            </span>
+          </cell>
+        </group>
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>确认密码
+            </span>
+            <span slot="default">
+              <input type="password" placeholder="请再次输入您的密码"/>
+            </span>
+          </cell>
+        </group>
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>联系人
+            </span>
+            <span slot="default">
+              <input type="text" placeholder="请输入联系人姓名"/>
+            </span>
+          </cell>
+        </group>
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>手机
+            </span>
+            <span slot="default">
+              <input type="tel" placeholder="请输入您的手机号"/>
+            </span>
+          </cell>
+        </group>
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>学校名称
+            </span>
+            <span slot="default">
+              <input type="text" placeholder="请输入学校名称"/>
+            </span>
+          </cell>
+        </group>
+        <group>
+          <cell is-link>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>学校简介
+            </span>
+            <span slot="default"></span>
+          </cell>
+        </group>
+        <group>
+          <cell is-link>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>来源
+            </span>
+            <span slot="default"></span>
+          </cell>
+        </group>
+        
+        <tf-button type="primary" size="lg" 
+          @click="$router.push({ name: 'join-check-email' })">立即注册</tf-button>
+      </div>
+    </tf-wrapper>
+  <!-- <div class="page">
     <div class="page__content join-mint-cell">
-      <mt-field label="邮箱" placeholder="请输入邮箱" type="email" v-model="email"></mt-field>
-      <mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"></mt-field>
-      <mt-field label="确认密码" placeholder="请再次输入您的密码" type="password" v-model="password"></mt-field>
-      <mt-field label="联系人" placeholder="请输入联系人姓名" v-model="username"></mt-field>
-      <mt-field label="手机" placeholder="请输入您的手机号" type="tel" v-model="phone"></mt-field>
-      <mt-field label="学校名称" placeholder="请输入学校名称" v-model="school"></mt-field>
-      <mt-cell title="学校简介">
-        <i class="iconfont icon-xiala"></i>
-      </mt-cell>
       <mt-cell title="来源">
         <i class="iconfont icon-xiala" @click="$router.push('/join/institution/source')"></i>
       </mt-cell>
@@ -22,31 +97,29 @@
         点击立即注册代表您同意
         <span class="cl-primary">《机构用户协议》</span>
       </div>
-      <button class="page__content__button btn btn--lg" @click="$router.push('/join/check-email')">立即注册</button>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-  import deputyTopbar from '@/components/deputy-topbar.vue'
+  import { Cell, Group, PopupPicker, Popup, TransferDom } from 'vux'
 
   export default {
+    directives: {
+      TransferDom
+    },
     components: {
-      'tf-deputy-topbar': deputyTopbar
+      Group,
+      Cell,
+      PopupPicker,
+      Popup
     }
   }
 </script>
 
 <style lang="scss" scoped>
   @import "~@/assets/style/out-import";
-
-  .page {
-    &__content {
-      padding: 0 tr(40px);
-      &__button {
-        width: 100%;
-        margin-top: tr(80px);
-      }
-    }
+  .sign-up__content{
+    padding: 0 tr(30px) tr(98px);
   }
 </style>

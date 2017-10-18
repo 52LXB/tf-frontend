@@ -23,6 +23,20 @@
       :no-border="true">
     </tf-textarea>
 
+    <tf-radio 
+      v-for="(item, index) in radioList"
+      :checked="radioIsChecked(item.value)"
+      :key="index"
+      :label="item.name"
+      @click.native="toggleRadio(item.value)"></tf-radio>
+
+    <tf-checkbox
+      v-for="(item, index) in checkboxList"
+      :checked="checkboxIsChecked(item.value)"
+      :key="index"
+      :label="item.name"
+      @click.native="toggleCheckobox(item.value)"></tf-checkbox>
+
     <div v-transfer-dom>
       <popup v-model="showPopup" position="left" width="100%">
         <div class="popup-demo">
@@ -34,11 +48,11 @@
     <div v-transfer-dom>
       <x-dialog v-model="showDialog">
         <tf-dialog-body
-          type="fail"
-          title="发送失败"
+          type="success"
+          title="发送成功"
           @on-close="showDialog = false">
           <div slot="content">
-            哇哦<br>消息发送失败咯
+            哇哦<br>消息发送成功咯
           </div>
         </tf-dialog-body>
       </x-dialog>
@@ -84,6 +98,26 @@
           content: '发offer',
           style: { background: '#FF8E3B' },
           handler: () => this.five()
+        }],
+        checkedRadioVal: 1,
+        radioList: [{
+          value: 1,
+          name: '男'
+        }, {
+          value: 2,
+          name: '女'
+        }],
+
+        checkedCheckboxVals: [],
+        checkboxList: [{
+          value: 1,
+          name: '苹果'
+        }, {
+          value: 2,
+          name: '香蕉'
+        }, {
+          value: 3,
+          name: '小番茄'
         }]
       }
     },
@@ -102,6 +136,39 @@
       },
       five () {
         alert('发offer')
+      },
+      toggleRadio (radioVal) {
+        if (radioVal === this.checkedRadioVal) {
+          return
+        } else {
+          this.checkedRadioVal = radioVal
+        }
+      },
+      radioIsChecked (radioVal) {
+        if (radioVal === this.checkedRadioVal) {
+          return true
+        } else {
+          return false
+        }
+      },
+
+      toggleCheckobox (checkboxVal) {
+        const checkboxValIndex = this.checkedCheckboxVals.indexOf(checkboxVal)
+
+        if (checkboxValIndex > -1) {
+          this.checkedCheckboxVals.splice(checkboxValIndex, 1)
+        } else {
+          this.checkedCheckboxVals.push(checkboxVal)
+        }
+      },
+      checkboxIsChecked (checkboxVal) {
+        const checkboxValIndex = this.checkedCheckboxVals.indexOf(checkboxVal)
+
+        if (checkboxValIndex > -1) {
+          return true
+        } else {
+          return false
+        }
       }
     }
   }
