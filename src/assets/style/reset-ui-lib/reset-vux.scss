@@ -16,6 +16,10 @@
     }
   }
 }
+.weui-dialog{
+  width: tr(690px) !important;
+  min-height: tr(466px) !important;
+}
 
 .vux-cell--no-border .vux-cell-box{
   &:before, &:after{

@@ -7,11 +7,20 @@
       </div>
     </mt-cell-swipe>
     <br>
-    <tf-button type="primary" @click.native="showPopup = true">显示popup</tf-button>
+    <tf-button @click.native="showPopup = true">显示popup</tf-button>
+    <tf-button @click.native="showDialog = true">显示dialog</tf-button>
     <br>
-    <tf-input type="text" v-model="inputVal" placeholder="input"></tf-input>
-    <tf-textarea type="text" v-model="inputVal" placeholder="textarea"></tf-textarea>
-    <tf-textarea type="text" v-model="inputVal" placeholder="无边框textarea" :no-border="true"></tf-textarea>
+    <tf-input
+      type="text"
+      v-model="inputVal"
+      placeholder="input"></tf-input>
+    <tf-textarea
+      v-model="inputVal"
+      placeholder="textarea"></tf-textarea>
+    <tf-textarea
+      v-model="inputVal"
+      placeholder="无边框textarea"
+      :no-border="true"></tf-textarea>
 
     <div v-transfer-dom>
       <popup v-model="showPopup" position="left" width="100%">
@@ -21,15 +30,23 @@
       </popup>
     </div>
 
-    <group>
-      <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" @on-shadow-change="onShadowChange" placeholder="请选择地址" inline-desc="可以设置placeholder" :show.sync="showAddress"></x-address>
-      <cell title="上面value值" :value="value"></cell>
-    </group>
+    <div v-transfer-dom>
+      <x-dialog v-model="showDialog">
+        <tf-dialog-body
+          type="fail"
+          title="发送失败"
+          @on-close="showDialog = false">
+          <div slot="content">
+            哇哦<br>消息发送失败咯
+          </div>
+        </tf-dialog-body>
+      </x-dialog>
+    </div>
   </div>
 </template>
 
 <script>
-  import { TransferDom, Popup } from 'vux'
+  import { TransferDom, Popup, XDialog } from 'vux'
   import { CellSwipe } from 'mint-ui'
 
   export default {
@@ -38,11 +55,13 @@
     },
     components: {
       Popup,
-      CellSwipe
+      CellSwipe,
+      XDialog
     },
     data () {
       return {
         inputVal: '',
+        showDialog: false,
         showPopup: false,
         swipeRight: [{
           content: '已录用',

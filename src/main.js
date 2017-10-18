@@ -19,6 +19,7 @@ import tfHeader from '@/components/public/tf-header'
 import tfButton from '@/components/widget/tf-button'
 import tfInput from '@/components/widget/tf-input'
 import tfTextarea from '@/components/widget/tf-textarea'
+import tfDialogBody from '@/components/widget/tf-dialog-body'
 
 Vue.component(tfWrapper.name, tfWrapper)
 Vue.component(tfTopbar.name, tfTopbar)
@@ -28,6 +29,7 @@ Vue.component(tfHeader.name, tfHeader)
 Vue.component(tfButton.name, tfButton)
 Vue.component(tfInput.name, tfInput)
 Vue.component(tfTextarea.name, tfTextarea)
+Vue.component(tfDialogBody.name, tfDialogBody)
 
 Vue.config.productionTip = false
 
