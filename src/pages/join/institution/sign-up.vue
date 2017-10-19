@@ -3,6 +3,7 @@
     <tf-header title="注册"></tf-header>
     <tf-wrapper>
       <div class="sign-up">
+        <tf-step :list="stepList" :current-index="0"></tf-step>
         <group>
           <cell>
             <span slot="title" class="fz-30">
@@ -125,7 +126,8 @@
     },
     data () {
       return {
-        agree: false
+        agree: false,
+        stepList: ['填写信息', '验证邮箱', '平台审核']
       }
     }
   }
@@ -135,6 +137,9 @@
   @import "~@/assets/style/out-import";
   .sign-up {
     padding: 0 tr(30px) tr(30px);
+    .tf-step {
+      margin: tr(68px) 0 tr(50px);
+    }
     .form-vcode {
       &__input {
         .tf-input{

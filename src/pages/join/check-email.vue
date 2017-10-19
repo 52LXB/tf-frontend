@@ -3,6 +3,7 @@
     <tf-header title="验证邮箱"></tf-header>
     <tf-wrapper>
       <div class="check-email">
+        <tf-step :list="stepList" :current-index="1"></tf-step>
         <div class="check-email__icon">
           <img src="../../assets/img/icon-status-ok.png" />
         </div>
@@ -24,7 +25,13 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    data () {
+      return {
+        stepList: ['填写信息', '验证邮箱', '平台审核']
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -32,6 +39,10 @@
   .check-email {
     padding: 0 tr(30px);
     text-align: center;
+    .tf-step {
+      text-align: left;
+      margin: tr(68px) 0 tr(50px); 
+    }
     &__icon {
       margin-top: tr(160px);
       img {

@@ -2,8 +2,8 @@
   <div>
     <mt-cell-swipe :right="swipeRight">
       <div slot="title" class="custom-cell__title">
-        <p>小明</p>
-        <small>TOFEL教师</small>
+        <p>swiper demo</p>
+        <small>左滑试试吧</small>
       </div>
     </mt-cell-swipe>
     <br>
@@ -36,6 +36,10 @@
       :key="index"
       :label="item.name"
       @click.native="toggleCheckobox(item.value)"></tf-checkbox>
+
+    <tf-step :list="stepList" :current-index="0"></tf-step>
+    <tf-step :list="stepList" :current-index="1"></tf-step>
+    <tf-step :list="stepList" :current-index="2"></tf-step>
 
     <div v-transfer-dom>
       <popup v-model="showPopup" position="left" width="100%">
@@ -118,7 +122,9 @@
         }, {
           value: 3,
           name: '小番茄'
-        }]
+        }],
+
+        stepList: ['步骤一', '步骤三', '步骤三', '步骤四']
       }
     },
     methods: {

@@ -22,6 +22,7 @@ import tfInput from '@/components/widget/tf-input'
 import tfTextarea from '@/components/widget/tf-textarea'
 import tfRadio from '@/components/widget/tf-radio'
 import tfCheckbox from '@/components/widget/tf-checkbox'
+import tfStep from '@/components/widget/tf-step'
 import tfDialogBody from '@/components/widget/tf-dialog-body'
 
 Vue.component(tfWrapper.name, tfWrapper)
@@ -35,6 +36,7 @@ Vue.component(tfInput.name, tfInput)
 Vue.component(tfTextarea.name, tfTextarea)
 Vue.component(tfRadio.name, tfRadio)
 Vue.component(tfCheckbox.name, tfCheckbox)
+Vue.component(tfStep.name, tfStep)
 Vue.component(tfDialogBody.name, tfDialogBody)
 
 Vue.config.productionTip = false
