@@ -24,7 +24,10 @@
           </div>
 
           <div class="login__form-item">
-            <input type="checkbox">记住密码
+            <tf-checkbox
+              :checked="rememberPwd"
+              label="记住密码"
+              @click.native="rememberPwd = !rememberPwd"></tf-checkbox>
           </div>
 
           <div class="login__form-item">
@@ -48,7 +51,13 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    data () {
+      return {
+        rememberPwd: false
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
