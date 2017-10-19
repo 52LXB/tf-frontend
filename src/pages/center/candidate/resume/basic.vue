@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <tf-header></tf-header>
+    <tf-header title="基础信息"></tf-header>
     <tf-wrapper>
       <div class="page__content ">
         <!--姓名-->
@@ -25,12 +25,13 @@
           </cell>
         </group>
         <!--生日-->
-        <group>
-          <cell class="fz-30">
+        <group class="vux__datetime">
+          <cell is-link class="fz-30">
             <span slot="title">
               <span class="cl-red">*&nbsp;</span>生日
             </span>
-            <span slot="default" >
+            <span slot="default">
+              <datetime v-model="candidateForm.birthday"></datetime>
             </span>
           </cell>
         </group>
@@ -178,7 +179,7 @@
 </template>
 
 <script>
-  import { Cell, Group, PopupPicker, Popup, TransferDom } from 'vux'
+  import { Cell, Group, PopupPicker, Popup, TransferDom, Datetime } from 'vux'
 
   export default {
     directives: {
@@ -188,7 +189,8 @@
       Group,
       Cell,
       PopupPicker,
-      Popup
+      Popup,
+      Datetime
     },
     computed: {
       name () {
@@ -257,7 +259,7 @@
             'gender_id': 1,
             'gender_name': '女'
           },
-          'birthday': 123,
+          'birthday': '2017-06-01',
           'nationality': {
             'nationality_id': 1,
             'nationality_name': '美国'

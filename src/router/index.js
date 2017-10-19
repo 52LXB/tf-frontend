@@ -21,8 +21,11 @@ import institutionCenter from '@/pages/center/institution/index'
 import institutionCenterEdit from '@/pages/center/institution/edit'
 import institutionCenterPreview from '@/pages/center/institution/preview'
 import job from '@/pages/job/index'      // [职位主页]
+import jobCreat from '@/pages/job/creat'  // [职位新建]
 import jobPreview from '@/pages/job/preview'      // [职位预览页]
 import jobShow from '@/pages/job/show'      // [职位展示页]
+import jobManagement from '@/pages/job/management'      // [职位展示页]
+import jobConsult from '@/pages/job/consult'      // [职位咨询]
 import candidates from '@/pages/candidates/index'      // [推荐教师主页]
 
 import demo from '@/pages/demo'
@@ -138,6 +141,11 @@ export default new Router({
       component: job
     },
     {
+      path: '/job/creat',
+      name: 'job-creat',
+      component: jobCreat
+    },
+    {
       path: '/job/preview',
       name: 'job-preview',
       component: jobPreview
@@ -146,6 +154,16 @@ export default new Router({
       path: '/job/show',
       name: 'job-show',
       component: jobShow
+    },
+    {
+      path: '/job/management',
+      name: 'job-management',
+      component: jobManagement
+    },
+    {
+      path: '/job/consult',
+      name: 'job-consult',
+      component: jobConsult
     },
     {
       path: '/candidates',
