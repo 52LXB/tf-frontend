@@ -2,7 +2,8 @@
   <div>
     <tf-header title="注册"></tf-header>
     <tf-wrapper>
-      <div class="sign-up__content">
+      <div class="sign-up">
+        <tf-step :list="stepList" :current-index="0"></tf-step>
         <group>
           <cell>
             <span slot="title" class="fz-30">
@@ -79,25 +80,34 @@
             <span slot="default"></span>
           </cell>
         </group>
+
+        <group>
+          <cell>
+            <span slot="title" class="fz-30">
+              <span class="cl-red">*&nbsp;</span>验证码
+            </span>
+            <span slot="default">
+              <div class="fx-space-between fx-align-center form-vcode">
+                <div class="form-vcode__input">
+                  <tf-input type="text" :no-border="true"/>
+                </div>
+                <p class="form-vcode__split">&nbsp;|&nbsp;</p>
+                <p class="fz-30 form-vcode__send">获取验证码</p>
+              </div>
+            </span>
+          </cell>
+        </group>
+
+        <div class="form-remember-pwd fx-align-center fz-26">
+          <tf-checkbox :checked="agree" @click.native="agree = !agree"></tf-checkbox>
+          <span class="cl-gray-dark">点击立即注册代表您同意</span>
+          <span class="cl-primary">《机构用户协议》</span>
+        </div>
         
         <tf-button type="primary" size="lg" 
-          @click="$router.push({ name: 'join-check-email' })">立即注册</tf-button>
+          @click.native="$router.push({ name: 'join-check-email' })">立即注册</tf-button>
       </div>
-    </tf-wrapper>
-  <!-- <div class="page">
-    <div class="page__content join-mint-cell">
-      <mt-cell title="来源">
-        <i class="iconfont icon-xiala" @click="$router.push('/join/institution/source')"></i>
-      </mt-cell>
-      <mt-cell title="验证码">
-        <div class="mint-cell-button__text">获取验证码</div>
-      </mt-cell>
-      <div class="form-item form-item--checkbox fz-26">
-        <input type="checkbox">
-        点击立即注册代表您同意
-        <span class="cl-primary">《机构用户协议》</span>
-      </div>
-    </div> -->
+    </tf-wrapper>  
   </div>
 </template>
 
@@ -113,13 +123,40 @@
       Cell,
       PopupPicker,
       Popup
+    },
+    data () {
+      return {
+        agree: false,
+        stepList: ['填写信息', '验证邮箱', '平台审核']
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
   @import "~@/assets/style/out-import";
-  .sign-up__content{
-    padding: 0 tr(30px) tr(98px);
+  .sign-up {
+    padding: 0 tr(30px) tr(30px);
+    .tf-step {
+      margin: tr(68px) 0 tr(50px);
+    }
+    .form-vcode {
+      &__input {
+        .tf-input{
+          padding: 0;
+          height: tr(54px);
+        }
+      }
+      &__split {
+        color: #CCCCCC !important;
+      }
+      &__send {
+        color: $cl-primary !important;
+      }
+    }
+    .form-remember-pwd{
+      height: tr(100px);
+      padding-bottom: tr(20px);
+    }
   }
 </style>

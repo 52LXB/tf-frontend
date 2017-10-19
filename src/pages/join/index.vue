@@ -4,21 +4,21 @@
     <div class="page__content fx-column">
       <div class="page__content__card fx-column-center">
         <router-link to="/join/institution/sign-up">
-          <div class="page__content__card_o">
-            <i class="iconfont icon-yuanjiaojuxing"></i>
+          <div class="page__content__card__item">
+            <img src="../../assets/img/icon-institution-circle.png" />
+            <p class="fz-36 cl-black card__item-type">企业</p>
+            <p class="fz-24 cl-gray">我要发布职位</p>
           </div>
         </router-link>
-        <div class="page__content__card__title">企业</div>
-        <div class="page__content__card__subtitle">我要发布职位</div>
       </div>
       <div class="page__content__card fx-column-center">
         <router-link to="/join/candidate/sign-up">
-          <div class="page__content__card_o">
-            <i class="iconfont icon-qiuzhizhe"></i>
+          <div class="page__content__card__item">
+            <img src="../../assets/img/icon-candidate-circle.png" />
+            <p class="fz-36 cl-black card__item-type">求职者</p>
+            <p class="fz-24 cl-gray">我要求职</p>
           </div>
         </router-link>
-        <div class="page__content__card__title">求职者</div>
-        <div class="page__content__card__subtitle">我要求职</div>
       </div>
     </div>
   </div>
@@ -45,6 +45,15 @@
       flex: 1;
       &__card {
         flex: 1;
+        &__item{
+          text-align: center;
+          img{
+            width: tr(200px);
+          }
+          .card__item-type{
+            margin: tr(20px) 0 tr(18px);
+          }
+        }
       }
     }
   }
