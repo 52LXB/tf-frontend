@@ -1,74 +1,63 @@
 <template>
-  <div class="page fx-column fz-30">
-    <tf-deputy-topbar title="预览职位"></tf-deputy-topbar>
-    <div class="page__content">
-      <div class="top fx-column-align-center">
-        <div class="top__avatar fx-center">
-          <img src="http://fakeimg.pl/130x130/"/>
-        </div>
-        <div class="top__name fz-36">{{institutionForm.name}}</div>
-        <div class="top__salary fz-36">{{jobForm.salary.salary_name}}</div>
-        <div class="top__welfare fz-18">
-          <span class="top__welfare--cl-yellow">住宿补贴</span>
-          <span class="top__welfare--cl-red">五险一金</span>
-        </div>
-        <div class="top__text fz-24">
-          <span>{{institutionForm.type}}</span>
-          <span>{{institutionForm.scale}}</span>
-          <span>{{institutionForm.city}}</span>
-        </div>
-        <div class="top__text top__text--margin fz-24">
-          <span><i class="iconfont icon-yulan"></i>66</span>
-          <span>{{institutionForm.created_year}}</span>
-          <span><i class="iconfont icon-yulan"></i>10</span>
-        </div>
-      </div>
-      <div class="main">
-        <div class="main__title">学校介绍</div>
-        <div class="main__content">
-          <div class="main__content__text">{{institutionForm.institution}}</div>
-        </div>
-        <div class="main__title fz-30">职位描述</div>
-        <div class="main__content fz-30">
-          <div class="main__content__text">{{jobForm.description}}</div>
-        </div>
-        <div class="main__title">职位要求</div>
-        <div class="main__content">
-          <div class="main__content__text">招聘人数：{{jobForm.num_recruited.num_recruited_name}}</div>
-          <div class="main__content__text">入职日期：{{jobForm.due_date}}</div>
-          <div class="main__content__text">工作经验：{{jobForm.experience.experience_name}}人</div>
-          <div class="main__content__text">学历：{{jobForm.education.education_name}}</div>
-          <div class="main__content__text">年龄: {{jobForm.age}}</div>
-          <div class="main__content__text">性别: {{jobForm.gender.gender_name}}</div>
-        </div>
-      </div>
-      <div class="main__footer">
-        <button>职位咨询</button>
-        <button>立即申请职位</button>
-      </div>
-    </div>
-    <div class="consult flexbox">
-      <div class="consult__top">
-          <div class="consult__top__logo">
-            <img src="http://fakeimg.pl/120x120/"/>
+  <div class="page fz-30">
+    <tf-header title="职位详情"></tf-header>
+    <tf-wrapper>
+      <div class="page__content">
+        <div class="top fx-column-align-center">
+          <div class="top__avatar fx-center">
+            <img src="http://fakeimg.pl/130x130/"/>
           </div>
-          <div class="consult__content">
-
+          <div class="top__name fz-36">{{institutionForm.name}}</div>
+          <div class="top__salary fz-36">{{jobForm.salary.salary_name}}</div>
+          <div class="top__welfare fz-18">
+            <span class="top__welfare--cl-yellow">住宿补贴</span>
+            <span class="top__welfare--cl-red">五险一金</span>
+          </div>
+          <div class="top__text fz-24">
+            <span>{{institutionForm.type}}</span>
+            <span>{{institutionForm.scale}}</span>
+            <span>{{institutionForm.city}}</span>
+          </div>
+          <div class="top__text top__text--margin fz-24">
+            <span><i class="iconfont icon-yulan"></i>66</span>
+            <span>{{institutionForm.created_year}}</span>
+            <span><i class="iconfont icon-yulan"></i>10</span>
           </div>
         </div>
-      <div class="consult__main"></div>
-      <div class="consult__footer"></div>
-    </div>
+        <div class="main">
+          <div class="main__title">学校介绍</div>
+          <div class="main__content">
+            <div class="main__content__text">{{institutionForm.institution}}</div>
+          </div>
+          <div class="main__title fz-30">职位描述</div>
+          <div class="main__content fz-30">
+            <div class="main__content__text">{{jobForm.description}}</div>
+          </div>
+          <div class="main__title">职位要求</div>
+          <div class="main__content">
+            <div class="main__content__text">招聘人数：{{jobForm.num_recruited.num_recruited_name}}</div>
+            <div class="main__content__text">入职日期：{{jobForm.due_date}}</div>
+            <div class="main__content__text">工作经验：{{jobForm.experience.experience_name}}人</div>
+            <div class="main__content__text">学历：{{jobForm.education.education_name}}</div>
+            <div class="main__content__text">年龄: {{jobForm.age}}</div>
+            <div class="main__content__text">性别: {{jobForm.gender.gender_name}}</div>
+          </div>
+          <div class="main__footer fx-space-between gap-16">
+            <tf-button type="primary" size="md" @click.native="$router.push('/job/consult')">
+              <span class="fz-30">职位咨询</span>
+            </tf-button>
+            <tf-button type="primary" size="md" @click.native="$router.push('/job/consult')">
+              <span class="fz-30">立即申请职位</span>
+            </tf-button>
+          </div>
+        </div>
+      </div>
+    </tf-wrapper>
   </div>
 </template>
 
 <script>
-  import deputyTopbar from '@/components/deputy-topbar.vue'
-
   export default {
-    components: {
-      'tf-deputy-topbar': deputyTopbar
-    },
     data () {
       return {
         institutionForm: {
@@ -150,7 +139,6 @@
           },
           'description': '新东方，全名北京新东方教育科技（集团）有限公司总部位于北京市海淀区中关村，是规模最大的综合性教育集团，同时也是教育培训集团。新东方，全名北京新东方教育科技（集团）有限公司总部位于北京市海淀区中关村。'
         }
-
       }
     }
   }
@@ -253,24 +241,6 @@
         }
         &__imgs::-webkit-scrollbar {
           display: none;
-        }
-      }
-    }
-    .consult {
-      &__top {
-        width: 100%;
-        height: tr(240px);
-        background-image: url('../../assets/img/common/personal_center_background.jpg');
-        background-size: 100%;
-        padding: tr(70px) tr(30px) 0 tr(30px);
-        &__logo {
-          width: tr(120px);
-          height: tr(120px);
-          margin-right: tr(25px);
-          img {
-            width: tr(120px);
-            height: tr(120px);
-          }
         }
       }
     }

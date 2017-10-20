@@ -18,11 +18,17 @@
 				font-size: 12px;
 				box-sizing: border-box;
 			}
-		}	
+		}
 	}
 }
 
 .mint-radio-input:checked+.mint-radio-core {
     background-color: #73A100;
     border-color: #73A100;
+}
+
+.mint-cell-border-bottom {
+  .mint-cell-wrapper {
+    border-bottom: 1px solid $cl-sliver-light;
+  }
 }

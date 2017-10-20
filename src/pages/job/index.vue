@@ -1,97 +1,93 @@
 <template>
   <div class="page fz-30">
     <tf-topbar></tf-topbar>
-    <div class="page__banner">
-      <mt-swipe :auto="4000" class="page__mt-swipe">
-        <mt-swipe-item><img src="../../assets/img/banner/index_banner.jpg"/></mt-swipe-item>
-        <mt-swipe-item><img src="../../assets/img/banner/job_banner.jpg"></mt-swipe-item>
-        <mt-swipe-item><img src="../../assets/img/banner/teacher_banner.jpg"></mt-swipe-item>
-        <mt-swipe-item><img src="../../assets/img/banner/vip_banner.jpg"></mt-swipe-item>
-        <mt-swipe-item><img src="../../assets/img/banner/FTP_banner.jpg"></mt-swipe-item>
-      </mt-swipe>
-    </div>
-    <div class="page__content">
-      <div class="recommend">
-        <div class="recommend__title">推荐职位</div>
-        <div class="fx-space-between">
-          <div class="recommend__card">
-            <img src="http://fakeimg.pl/400x400/000033/"/>
-            <div>ESL</div>
-            <div class="fz-22 cl-gray">ESL讲师</div>
-            <div class="fz-22 cl-gray">
-              <span>朝阳</span>
-              <span> 5K～8K</span>
+    <tf-wrapper :hasBackground="false">
+      <div class="page__banner">
+        <mt-swipe :auto="4000" class="page__mt-swipe">
+          <mt-swipe-item><img src="../../assets/img/banner/index_banner.jpg"/></mt-swipe-item>
+          <mt-swipe-item><img src="../../assets/img/banner/job_banner.jpg"></mt-swipe-item>
+          <mt-swipe-item><img src="../../assets/img/banner/teacher_banner.jpg"></mt-swipe-item>
+          <mt-swipe-item><img src="../../assets/img/banner/vip_banner.jpg"></mt-swipe-item>
+          <mt-swipe-item><img src="../../assets/img/banner/FTP_banner.jpg"></mt-swipe-item>
+        </mt-swipe>
+      </div>
+      <div class="page__content">
+        <div class="recommend">
+          <div class="recommend__title">推荐职位</div>
+          <div class="fx-space-between">
+            <div class="recommend__card">
+              <img src="http://fakeimg.pl/400x400/000033/"/>
+              <div>ESL</div>
+              <div class="fz-22 cl-gray">ESL讲师</div>
+              <div class="fz-22 cl-gray">
+                <span>朝阳</span>
+                <span> 5K～8K</span>
+              </div>
+            </div>
+            <div class="recommend__card">
+              <img src="http://fakeimg.pl/400x400/000033/"/>
+              <div>ESL</div>
+              <div class="fz-22 cl-gray">ESL讲师</div>
+              <div class="fz-22 cl-gray">
+                <span>朝阳</span>
+                <span> 5K～8K</span>
+              </div>
+            </div>
+            <div class="recommend__card">
+              <img src="http://fakeimg.pl/400x400/000033/"/>
+              <div>ESL</div>
+              <div class="fz-22 cl-gray">ESL讲师</div>
+              <div class="fz-22 cl-gray">
+                <span>朝阳</span>
+                <span> 5K～8K</span>
+              </div>
             </div>
           </div>
-          <div class="recommend__card">
-            <img src="http://fakeimg.pl/400x400/000033/"/>
-            <div>ESL</div>
-            <div class="fz-22 cl-gray">ESL讲师</div>
-            <div class="fz-22 cl-gray">
-              <span>朝阳</span>
-              <span> 5K～8K</span>
-            </div>
+        </div>
+        <div class="banner">
+          <img src="http://fakeimg.pl/750x200/000033/"/>
+        </div>
+        <div class="filter fx-column-align-center">
+          <div class="filter__box">
+            <tf-filter-box></tf-filter-box>
           </div>
-          <div class="recommend__card">
-            <img src="http://fakeimg.pl/400x400/000033/"/>
-            <div>ESL</div>
-            <div class="fz-22 cl-gray">ESL讲师</div>
-            <div class="fz-22 cl-gray">
-              <span>朝阳</span>
-              <span> 5K～8K</span>
-            </div>
+          <div class="filter__tab">
+            <tab :line-width=5 active-color='#7da027' v-model="index" >
+              <tab-item class="vux-center" :selected="demoSelected === item" v-for="(item, index) in tabList" @click="demoSelected = item" :key="index">{{item}}</tab-item>
+            </tab>
           </div>
         </div>
-      </div>
-      <div class="banner">
-        <img src="http://fakeimg.pl/750x200/000033/"/>
-      </div>
-      <div class="filter fx-column-align-center">
-        <div class="filter__box">
-          <tf-filter-box></tf-filter-box>
-        </div>
-        <div class="filter__tab flexbox">
-          <div class="filter__tab__item fx-center">默认</div>
-          <div class="filter__tab__item fx-center">最新</div>
-          <div class="filter__tab__item fx-center">全部</div>
+        <div v-for="job in jobForm" class="job-card">
+          <tf-job-card :job="job"></tf-job-card>
         </div>
       </div>
-      <div v-for="job in jobForm" class="job-card">
-        <tf-job-card :job="job"></tf-job-card>
+      <div class="page__footer cl-gray fx-center fz-22">
+        已显示全部
       </div>
-    </div>
-    <button @click="popupVisible = !popupVisible">asamsl</button>
-    <mt-popup
-      v-model="popupVisible"
-      position="right">
-      <div class="filter-page">
-        <tf-deputy-topbar title="筛选"></tf-deputy-topbar>
-        <div class="filter-page__item">
-          <div class="filter-page__item__title">职位类型</div>
-          <div>oaskdlasml</div>
-        </div>
-      </div>
-    </mt-popup>
-    <tf-filter></tf-filter>
+    </tf-wrapper>
   </div>
 </template>
 
 <script>
-  import Topbar from '@/components/topbar'
+  import { Tab, TabItem } from 'vux'
   import Filter from '@/components/filter'
   import FilterBox from '@/components/filter-box'
   import JobCard from '@/components/job-card'
 
   export default {
     components: {
-      'tf-topbar': Topbar,
       'tf-filter': Filter,
       'tf-filter-box': FilterBox,
-      'tf-job-card': JobCard
+      'tf-job-card': JobCard,
+      Tab,
+      TabItem
     },
     data () {
       return {
-        popupVisible: false,
+        tabList: ['默认', '最新', '全部'],
+        getBarWidth: function (index) {
+          return '1.5rem'
+        },
         jobForm: [
           {
             'name': '11',
@@ -336,6 +332,11 @@
           margin-top: tr(20px);
           &__item {
             flex: 1;
+            span {
+              display: inline-block;
+              box-sizing: border-box;
+              line-height: tr(70px);
+            }
           }
         }
       }
@@ -346,6 +347,9 @@
     .filter-page {
       width: 10rem;
       min-height: 100vh;
+    }
+    &__footer {
+      height: tr(80px);
     }
   }
 </style>

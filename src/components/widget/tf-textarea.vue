@@ -5,7 +5,7 @@
       'with-border': !noBorder,
       'with-background': !noBackground
     }"
-    :value="value" 
+    :value="value"
     :rows="rows"
     :placeholder="placeholder"
     @input="$emit('input', $event.target.value)">
@@ -50,7 +50,7 @@
       background: $cl-white;
     }
     &.with-border{
-      border: 1px solid $cl-sliver;
+      border: 1px solid $cl-sliver-light;
       border-radius: tr(2px);
     }
   }
