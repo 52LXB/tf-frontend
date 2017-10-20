@@ -36,28 +36,31 @@
         </div>
         <div class="main__title">公司图片</div>
         <div class="main__imgs">
-          <img class="main__imgs__item" v-for="img in institutionForm.img" :src="img"/>
+          <img class="main__imgs__item" 
+            v-for="(img, index) in institutionForm.img" 
+            :src="img"
+            @click="showPreviewer(index)"/>
         </div>
       </div>
     </div>
-    <div class="page__cover">
-      <div class="page__cover__swipe">
-        <mt-swipe :auto="1000">
-          <mt-swipe-item><img src="http://fakeimg.pl/158x158/"/></mt-swipe-item>
-          <mt-swipe-item><img src="http://fakeimg.pl/158x158/"/></mt-swipe-item>
-          <mt-swipe-item><img src="http://fakeimg.pl/158x158/"/></mt-swipe-item>
-        </mt-swipe>
-      </div>
+    
+    <div v-transfer-dom>
+      <previewer ref="previewer" :list="previewerImg" :options="previewerOpt"></previewer>
     </div>
   </div>
 </template>
 
 <script>
   import Topbar from '@/components/topbar.vue'
+  import { TransferDom, Previewer } from 'vux'
 
   export default {
+    directives: {
+      TransferDom
+    },
     components: {
-      'tf-topbar': Topbar
+      'tf-topbar': Topbar,
+      Previewer
     },
     data () {
       return {
@@ -83,17 +86,53 @@
           'select_reason': '2',
           'titile': 'http://fakeimg.pl/130x130/',
           'img': [
-            'http://fakeimg.pl/158x158/',
-            'http://fakeimg.pl/158x158/',
-            'http://fakeimg.pl/158x158/',
-            'http://fakeimg.pl/158x158/',
-            'http://fakeimg.pl/158x158/',
-            'http://fakeimg.pl/158x158/',
-            'http://fakeimg.pl/158x158/',
-            'http://fakeimg.pl/158x158/'
+            'http://placehold.it/100x100',
+            'http://placehold.it/200x200',
+            'http://placehold.it/300x300',
+            'http://placehold.it/400x400',
+            'http://placehold.it/500x500',
+            'http://placehold.it/600x600'
           ],
           'created_year': '2001'
+        },
+        previewerImg: [{
+          src: 'http://placehold.it/100x100',
+          w: 100,
+          h: 100
+        }, {
+          src: 'http://placehold.it/100x100',
+          w: 100,
+          h: 100
+        }, {
+          src: 'http://placehold.it/100x100',
+          w: 100,
+          h: 100
+        }, {
+          src: 'http://placehold.it/100x100',
+          w: 100,
+          h: 100
+        }, {
+          src: 'http://placehold.it/100x100',
+          w: 100,
+          h: 100
+        }, {
+          src: 'http://placehold.it/100x100',
+          w: 100,
+          h: 100
+        }],
+        previewerOpt: {
+          getThumbBoundsFn (index) {
+            let thumbnail = document.querySelectorAll('.pswp__item')[index]
+            let pageYScroll = window.pageYOffset || document.documentElement.scrollTop
+            let rect = thumbnail.getBoundingClientRect()
+            return {x: rect.left, y: rect.top + pageYScroll, w: rect.width}
+          }
         }
+      }
+    },
+    methods: {
+      showPreviewer (index) {
+        this.$refs.previewer.show(index)
       }
     }
   }
@@ -173,14 +212,6 @@
         &__imgs::-webkit-scrollbar {
           display: none;
         }
-      }
-    }
-    &__cover {
-      width: 10rem;
-      height: 100vh;
-      background: $cl-black-dark;
-      &__swipe {
-        height: tr(500px);
       }
     }
   }
