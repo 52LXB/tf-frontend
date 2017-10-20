@@ -41,6 +41,8 @@
     <tf-step :list="stepList" :current-index="1"></tf-step>
     <tf-step :list="stepList" :current-index="2"></tf-step>
 
+    <tf-button @click.native="showPreviewer(0)">显示图片预览</tf-button>
+
     <div v-transfer-dom>
       <popup v-model="showPopup" position="left" width="100%">
         <div class="popup-demo">
@@ -61,11 +63,15 @@
         </tf-dialog-body>
       </x-dialog>
     </div>
+
+    <div v-transfer-dom>
+      <previewer :list="previewerList" ref="previewer" :options="previewerOpt"></previewer>
+    </div>
   </div>
 </template>
 
 <script>
-  import { TransferDom, Popup, XDialog } from 'vux'
+  import { TransferDom, Popup, XDialog, Previewer } from 'vux'
   import { CellSwipe } from 'mint-ui'
 
   export default {
@@ -75,7 +81,8 @@
     components: {
       Popup,
       CellSwipe,
-      XDialog
+      XDialog,
+      Previewer
     },
     data () {
       return {
@@ -124,7 +131,23 @@
           name: '小番茄'
         }],
 
-        stepList: ['步骤一', '步骤三', '步骤三', '步骤四']
+        stepList: ['步骤一', '步骤三', '步骤三', '步骤四'],
+
+        previewerList: [{
+          src: 'http://placehold.it/200x150'
+        }, {
+          src: 'http://placehold.it/300x240'
+        }, {
+          src: 'http://placehold.it/800x500'
+        }],
+        previewerOpt: {
+          getThumbBoundsFn (index) {
+            let thumbnail = document.querySelectorAll('.pswp__item')[index]
+            let pageYScroll = window.pageYOffset || document.documentElement.scrollTop
+            let rect = thumbnail.getBoundingClientRect()
+            return {x: rect.left, y: rect.top + pageYScroll, w: rect.width}
+          }
+        }
       }
     },
     methods: {
@@ -175,6 +198,10 @@
         } else {
           return false
         }
+      },
+
+      showPreviewer (index) {
+        this.$refs.previewer.show(index)
       }
     }
   }
@@ -182,7 +209,6 @@
 
 <style lang="scss" scoped>
   @import "~@/assets/style/out-import";
-
   .page {
     .box {
       width: tr(100px);
