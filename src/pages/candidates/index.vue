@@ -47,13 +47,11 @@
 </template>
 
 <script>
-  import Filter from '@/components/filter'
   import FilterBox from '@/components/filter-box'
   import tfTeacherCard from '@/components/teacher-card'
 
   export default {
     components: {
-      'tf-filter': Filter,
       'tf-filter-box': FilterBox,
       tfTeacherCard
     },

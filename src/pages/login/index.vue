@@ -8,15 +8,15 @@
         </div>
         <div class="login__form">
           <div class="login__form-item">
-            <tf-input type="email" placeholder="请输入邮箱"></tf-input>
+            <tf-input v-model="formData.email" type="email" placeholder="请输入邮箱"></tf-input>
           </div>
           <div class="login__form-item">
-            <tf-input type="password" placeholder="请输入6-15位的密码"></tf-input>
+            <tf-input v-model="formData.password" type="password" placeholder="请输入6-15位的密码"></tf-input>
           </div>
 
           <div class="login__form-item fx-space-between">
             <div class="form-item__vcode-left">
-              <tf-input placeholder="请输入验证码"></tf-input>
+              <tf-input v-model="formData.code" placeholder="请输入验证码"></tf-input>
             </div>
             <div class="form-item__vcode-right">
               <img src="http://placehold.it/80x43">
@@ -31,11 +31,11 @@
           </div>
 
           <div class="login__form-item">
-            <tf-button type="primary" size="lg">登录</tf-button>
+            <tf-button type="primary" size="lg" @click.native="login">登录</tf-button>
           </div>
         </div>
         <div class="fx-space-between">
-          <span class="fz-26 cl-gray" 
+          <span class="fz-26 cl-gray"
             @click="$router.push({ name: 'login-forget-password' })">
             忘记密码
           </span>
@@ -54,7 +54,27 @@
   export default {
     data () {
       return {
+        formData: {
+          email: '',
+          password: '',
+          code: ''
+        },
         rememberPwd: false
+      }
+    },
+    created () {
+      this.getVcode()
+    },
+    methods: {
+      getVcode () {
+        this.$http.get('http://v3.teachfuture.org/v1/server/verification').then(res => {
+          console.log(res)
+        })
+      },
+      login () {
+        this.$http.post('http://v3.teachfuture.org/v1/user/auth/login', this.formData).then(res => {
+          console.log(res)
+        })
       }
     }
   }

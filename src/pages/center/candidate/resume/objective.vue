@@ -17,7 +17,7 @@
         </group>
         <!--期望工作地点-->
         <group @click.native="showJobLocation = true">
-          <cell is-link class="fz-30">
+          <cell class="fz-30">
             <span slot="title">
               <span>&nbsp;&nbsp;</span>期望工作地点
             </span>

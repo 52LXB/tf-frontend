@@ -1,78 +1,77 @@
 <template>
-  <div class="page fx-column fz-30">
-    <tf-deputy-topbar title="查看简历"></tf-deputy-topbar>
-    <div class="page__content fx-column">
-      <div class="top fx-column-align-center">
-        <div class="top__avatar">
-          <img src="http://fakeimg.pl/130x130/"/>
+  <div class="page fz-30">
+    <tf-header title="查看简历"></tf-header>
+    <tf-wrapper>
+      <div class="page__content fx-column">
+        <div class="top fx-column-align-center">
+          <div class="top__avatar">
+            <img src="http://fakeimg.pl/130x130/"/>
+          </div>
+          <div class="top__name fz-36 cl-white-dark">
+            求职者名字
+          </div>
+          <div class="top__icon-wrapper">
+            <i class="iconfont icon-touxiang fz-48"></i>
+            <i class="iconfont icon-shoucang fz-48"></i>
+          </div>
+          <div class="top__text fz-24">
+            <span>{{candidateForm.gender.gender_name}}</span>
+            <span>{{candidateForm.age}}岁</span>
+            <span>{{candidateForm.is_married.is_married_name}}</span>
+            <span>{{candidateForm.nationality.nationality_name}}</span>
+          </div>
+          <div class="top__text fz-24">
+            <span>{{candidateForm.education.education_name}}</span>
+            <span>{{candidateForm.experience.experience_name}}年以上工作经验</span>
+            <span>{{candidateForm.address}}</span>
+          </div>
         </div>
-        <div class="top__name fz-36 cl-white-dark">
-          求职者名字
-        </div>
-        <div class="top__icon-wrapper">
-          <i class="iconfont icon-touxiang fz-48"></i>
-          <i class="iconfont icon-shoucang fz-48"></i>
-        </div>
-        <div class="top__text fz-24">
-          <span>{{candidateForm.gender.gender_name}}</span>
-          <span>{{candidateForm.age}}岁</span>
-          <span>{{candidateForm.is_married.is_married_name}}</span>
-          <span>{{candidateForm.nationality.nationality_name}}</span>
-        </div>
-        <div class="top__text fz-24">
-          <span>{{candidateForm.education.education_name}}</span>
-          <span>{{candidateForm.experience.experience_name}}年以上工作经验</span>
-          <span>{{candidateForm.address}}</span>
+        <div class="main flex1">
+          <div class="card">
+            <div class="card__title">
+              <i class="iconfont icon-objective fz-36"></i>
+              Objective
+            </div>
+            <div class="card__content fx-column">
+              <span>期望职位类型：</span>
+              <span>期望工作地点：{{candidateForm.location.location_name}}</span>
+              <span>期望薪水：{{candidateForm.salary.salary_name}}</span>
+              <span>职位属性：{{candidateForm.job_property.job_property_name}}</span>
+              <span>到岗时间：{{candidateForm.availability.availability_name}}</span>
+              <span>目前工作状态：{{candidateForm.job_status.job_status_name}}</span>
+              <span v-if="candidateForm.health_check">健康检查：{{candidateForm.health_check}}</span>
+            </div>
+          </div>
+          <div class="card" v-if="candidateForm.education_background">
+            <div class="card__title">
+              <i class="iconfont icon-qiuzhizhe fz-36"></i>
+              教育经历
+            </div>
+            <div class="card__content">{{candidateForm.education_background}}</div>
+          </div>
+          <div class="card" v-if="candidateForm.experience_background">
+            <div class="card__title">
+              <i class="iconfont icon-gongzuobeijing fz-36"></i>
+              工作背景
+            </div>
+            <div class="card__content">{{candidateForm.experience_background}}</div>
+          </div>
+          <div class="card" v-if="candidateForm.certificate_background">
+            <div class="card__title">
+              <i class="iconfont icon-jinengzhengshu fz-36"></i>
+              技能证书
+            </div>
+            <div class="card__content">{{candidateForm.certificate_background}}</div>
+          </div>
         </div>
       </div>
-      <div class="main flex1">
-        <div class="card">
-          <div class="card__title">
-            <i class="iconfont icon-objective fz-36"></i>
-            Objective
-          </div>
-          <div class="card__content fx-column">
-            <span>期望职位类型：</span>
-            <span>期望工作地点：{{candidateForm.location.location_name}}</span>
-            <span>期望薪水：{{candidateForm.salary.salary_name}}</span>
-            <span>职位属性：{{candidateForm.job_property.job_property_name}}</span>
-            <span>到岗时间：{{candidateForm.availability.availability_name}}</span>
-            <span>目前工作状态：{{candidateForm.job_status.job_status_name}}</span>
-            <span v-if="candidateForm.health_check">健康检查：{{candidateForm.health_check}}</span>
-          </div>
-        </div>
-        <div class="card" v-if="candidateForm.education_background">
-          <div class="card__title">
-            <i class="iconfont icon-qiuzhizhe fz-36"></i>
-            教育经历
-          </div>
-          <div class="card__content">{{candidateForm.education_background}}</div>
-        </div>
-        <div class="card" v-if="candidateForm.experience_background">
-          <div class="card__title">
-            <i class="iconfont icon-gongzuobeijing fz-36"></i>
-            工作背景
-          </div>
-          <div class="card__content">{{candidateForm.experience_background}}</div>
-        </div>
-        <div class="card" v-if="candidateForm.certificate_background">
-          <div class="card__title">
-            <i class="iconfont icon-jinengzhengshu fz-36"></i>
-            技能证书
-          </div>
-          <div class="card__content">{{candidateForm.certificate_background}}</div>
-        </div>
-      </div>
-    </div>
+    </tf-wrapper>
   </div>
 </template>
 
 <script>
-  import deputyTopbar from '@/components/deputy-topbar.vue'
-
   export default {
     components: {
-      'tf-deputy-topbar': deputyTopbar
     },
     computed: {
     },

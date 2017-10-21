@@ -15,7 +15,7 @@
         <div class="recommend">
           <div class="recommend__title">推荐职位</div>
           <div class="fx-space-between">
-            <div class="recommend__card">
+            <div class="recommend__card" @click="$router.push('/job/show')">
               <img src="http://fakeimg.pl/400x400/000033/"/>
               <div>ESL</div>
               <div class="fz-22 cl-gray">ESL讲师</div>
@@ -47,9 +47,9 @@
         <div class="banner">
           <img src="http://fakeimg.pl/750x200/000033/"/>
         </div>
-        <div class="filter fx-column-align-center">
-          <div class="filter__box">
-            <tf-filter-box></tf-filter-box>
+        <div class="filter fx-column-align-center" >
+          <div class="filter__box" @click="$router.push('/job/')">
+            <tf-filter-box @click.native="showFilter = true"></tf-filter-box>
           </div>
           <div class="filter__tab">
             <tab :line-width=5 active-color='#7da027' v-model="index" >
@@ -64,26 +64,37 @@
       <div class="page__footer cl-gray fx-center fz-22">
         已显示全部
       </div>
+      <!--弹窗——筛选 -->
+      <div v-transfer-dom>
+        <popup v-model="showFilter" position="right" width="100%">
+          <tf-filter-page></tf-filter-page>
+        </popup>
+      </div>
     </tf-wrapper>
   </div>
 </template>
 
 <script>
-  import { Tab, TabItem } from 'vux'
-  import Filter from '@/components/filter'
+  import { Tab, TabItem, Popup, TransferDom } from 'vux'
   import FilterBox from '@/components/filter-box'
   import JobCard from '@/components/job-card'
+  import TfFilterPage from '@/components/tf-filter-page'
 
   export default {
+    directives: {
+      TransferDom
+    },
     components: {
-      'tf-filter': Filter,
       'tf-filter-box': FilterBox,
       'tf-job-card': JobCard,
+      Popup,
+      TfFilterPage,
       Tab,
       TabItem
     },
     data () {
       return {
+        showFilter: false,
         tabList: ['默认', '最新', '全部'],
         getBarWidth: function (index) {
           return '1.5rem'

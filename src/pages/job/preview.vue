@@ -43,7 +43,7 @@
             <div class="main__content__text">性别: {{jobForm.gender.gender_name}}</div>
           </div>
           <div class="main__footer fx-space-between gap-16">
-            <tf-button type="primary" size="md"  @click.native="$router.push('/job/creat')">
+            <tf-button type="primary" size="md"  @click.native="$router.push('/job/create')">
               <span class="fz-30">继续发布职位</span>
             </tf-button>
             <tf-button type="primary" size="md" @click.native="$router.push('/job/management')">

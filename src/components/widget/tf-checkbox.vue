@@ -5,7 +5,7 @@
 	        'checked': checked === true,
 	        'unchecked': checked === false
 	      }"></span>
-	      <span v-if="label !== ''" class="cl-gray-dark fz-30">{{ label }}</span>  
+	      <span v-if="label !== ''" class="cl-gray-dark fz-30">{{ label }}</span>
 	      <div class="tf-checkbox__content">
 	      	<slot name="content"></slot>
 	      </div>
@@ -33,6 +33,7 @@
   @import "~@/assets/style/out-import";
   .tf-checkbox {
     display: inline-block;
+    margin-right: tr(40px);
     .tf-checkbox__icon{
     	display: inline-block;
     	width: tr(30px);

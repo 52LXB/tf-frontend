@@ -20,13 +20,20 @@
             <span slot="title">
               <span class="cl-red">*&nbsp;</span>性别
             </span>
-            <span slot="default" >
+            <span slot="default">
+              <tf-radio
+                v-for="(item, index) in genderRadioList"
+                :checked="genderRadioIsChecked(item.value)"
+                :key="index"
+                :label="item.name"
+                @click.native="toggleGenderRadio(item.value)">
+              </tf-radio>
             </span>
           </cell>
         </group>
         <!--生日-->
         <group class="vux__datetime">
-          <cell is-link class="fz-30">
+          <cell class="fz-30">
             <span slot="title">
               <span class="cl-red">*&nbsp;</span>生日
             </span>
@@ -141,6 +148,13 @@
               <span>&nbsp;&nbsp;</span>健康检查
             </span>
             <span slot="default" >
+              <tf-radio
+                v-for="(item, index) in healthyRadioList"
+                :checked="healthyRadioIsChecked(item.value)"
+                :key="index"
+                :label="item.name"
+                @click.native="toggleHealthyRadio(item.value)">
+              </tf-radio>
             </span>
           </cell>
         </group>
@@ -150,7 +164,14 @@
             <span slot="title">
               <span>&nbsp;&nbsp;</span>是否犯罪证明
             </span>
-            <span slot="default" >
+            <span slot="default">
+              <tf-radio
+                v-for="(item, index) in crimeRadioList"
+                :checked="crimeRadioIsChecked(item.value)"
+                :key="index"
+                :label="item.name"
+                @click.native="toggleWorkPermitRadio(item.value)">
+              </tf-radio>
             </span>
           </cell>
         </group>
@@ -160,11 +181,18 @@
             <span slot="title">
               <span class="cl-red-light">*&nbsp;</span>工作许可证
             </span>
-            <span slot="default" >
+            <span slot="default">
+              <tf-radio
+                v-for="(item, index) in workPermitRadioList"
+                :checked="workPermitRadioIsChecked(item.value)"
+                :key="index"
+                :label="item.name"
+                @click.native="toggleCrimeRadio(item.value)">
+              </tf-radio>
             </span>
           </cell>
         </group>
-        <!--地址-->
+        <!--弹窗———地址-->
         <div v-transfer-dom>
           <popup v-model="showAddress" position="right" width="100%">
             <tf-text-page customEventLeft="true" v-on:on-left-click="showAddress = false" title="地址">
@@ -215,6 +243,10 @@
         showEducationType: false,
         marryTypeVal: ['96'],
         educationTypeVal: ['0'],
+        genderRadioVal: 1,
+        healthyRadioVal: 1,
+        crimeRadioVal: 1,
+        workPermitRadioVal: 1,
         marryTypeList: [
           {
             value: '96',
@@ -249,6 +281,46 @@
           {
             value: '3',
             name: '学历三'
+          }
+        ],
+        genderRadioList: [
+          {
+            value: 1,
+            name: '男'
+          },
+          {
+            value: 2,
+            name: '女'
+          }
+        ],
+        healthyRadioList: [
+          {
+            value: 1,
+            name: '有'
+          },
+          {
+            value: 2,
+            name: '无'
+          }
+        ],
+        crimeRadioList: [
+          {
+            value: 1,
+            name: '有'
+          },
+          {
+            value: 2,
+            name: '无'
+          }
+        ],
+        workPermitRadioList: [
+          {
+            value: 1,
+            name: '有'
+          },
+          {
+            value: 2,
+            name: '无'
           }
         ],
         candidateForm: {
@@ -319,6 +391,64 @@
           },
           'headImg': '',
           'age': 18
+        }
+      }
+    },
+    methods: {
+      genderRadioIsChecked (radioVal) {
+        if (radioVal === this.genderRadioVal) {
+          return true
+        } else {
+          return false
+        }
+      },
+      toggleGenderRadio (radioVal) {
+        if (radioVal === this.genderRadioVal) {
+          return
+        } else {
+          this.genderRadioVal = radioVal
+        }
+      },
+      healthyRadioIsChecked (radioVal) {
+        if (radioVal === this.healthyRadioVal) {
+          return true
+        } else {
+          return false
+        }
+      },
+      toggleHealthyRadio (radioVal) {
+        if (radioVal === this.healthyRadioVal) {
+          return
+        } else {
+          this.healthyRadioVal = radioVal
+        }
+      },
+      crimeRadioIsChecked (radioVal) {
+        if (radioVal === this.crimeRadioVal) {
+          return true
+        } else {
+          return false
+        }
+      },
+      toggleCrimeRadio (radioVal) {
+        if (radioVal === this.crimeRadioVal) {
+          return
+        } else {
+          this.crimeRadioVal = radioVal
+        }
+      },
+      workPermitRadioIsChecked (radioVal) {
+        if (radioVal === this.workPermitRadioVal) {
+          return true
+        } else {
+          return false
+        }
+      },
+      toggleWorkPermitRadio (radioVal) {
+        if (radioVal === this.workPermitRadioVal) {
+          return
+        } else {
+          this.workPermitRadioVal = radioVal
         }
       }
     }

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
 import App from './App'
 import router from './router'
 import Mint from 'mint-ui'
@@ -10,6 +11,7 @@ import { ToastPlugin } from 'vux'
 
 Vue.use(Mint)
 Vue.use(ToastPlugin)
+Vue.use(VueResource)
 
 import tfWrapper from '@/components/public/tf-wrapper'
 import tfTopbar from '@/components/public/tf-topbar'

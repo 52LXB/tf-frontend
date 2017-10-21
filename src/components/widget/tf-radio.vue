@@ -5,7 +5,7 @@
         'checked': checked === true,
         'unchecked': checked === false
       }"></span>
-      <span v-if="label !== ''" class="cl-gray-dark fz-30">{{ label }}</span>  
+      <span v-if="label !== ''" class="cl-gray-dark fz-30">{{ label }}</span>
     </div>
 	</div>
 </template>
@@ -30,6 +30,7 @@
   @import "~@/assets/style/out-import";
   .tf-radio {
     display: inline-block;
+    margin-right: tr(30px);
     .tf-radio__icon{
     	display: inline-block;
     	width: tr(30px);

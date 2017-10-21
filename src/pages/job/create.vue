@@ -1,6 +1,8 @@
 <template>
   <div class="page">
-    <tf-header title="发布新职位"></tf-header>
+    <tf-header title="发布新职位">
+      <span slot="tf-header__right" class="fz-30" @click="$router.push('/job/preview')">预览</span>
+    </tf-header>
     <tf-wrapper>
       <div class="page__content">
         <!--职位名称 -->
@@ -131,15 +133,18 @@
           </cell>
         </group>
         <!--福利 -->
-        <group>
-          <cell is-link class="fz-30">
-            <span slot="title">
-              <span class="cl-red-light">*&nbsp;</span>福利
-            </span>
-            <span slot="default">
-            </span>
-          </cell>
-        </group>
+        <div class="page__content__welfare fz-30 cl-gray-dark flexbox">
+          <div class="page__content__welfare__title"><span class="cl-red-light">*&nbsp;</span>福利</div>
+          <div class="page__content__welfare__list">
+            <tf-checkbox class="welfare-checkbox"
+              v-for="(item, index) in welfareCheckboxList"
+              :checked="checkboxIsChecked(item.value)"
+              :key="index"
+              :label="item.name"
+              @click.native="toggleCheckobox(item.value)">
+            </tf-checkbox>
+          </div>
+        </div>
         <!--弹窗——职位描述 -->
         <div v-transfer-dom>
           <popup v-model="showDescription" position="right" width="100%">
@@ -148,7 +153,7 @@
             </tf-text-page>
           </popup>
         </div>
-        <tf-button class="gap-16" type="primary" size="lg">发&nbsp;&nbsp;&nbsp;布</tf-button>
+        <tf-button class="gap-16" type="primary" size="lg" @click.native="$router.push('/job/review')">发&nbsp;&nbsp;&nbsp;布</tf-button>
       </div>
     </tf-wrapper>
   </div>
@@ -187,6 +192,7 @@
         dueDateTypeVal: ['0'],
         genderTypeVal: ['0'],
         ageTypeVal: ['0'],
+        welfareCheckboxVals: [],
         jobTypeList: [
           {
             value: '0',
@@ -413,16 +419,16 @@
     },
     methods: {
       toggleCheckobox (checkboxVal) {
-        const checkboxValIndex = this.checkedCheckboxVals.indexOf(checkboxVal)
+        const checkboxValIndex = this.welfareCheckboxVals.indexOf(checkboxVal)
 
         if (checkboxValIndex > -1) {
-          this.checkedCheckboxVals.splice(checkboxValIndex, 1)
+          this.welfareCheckboxVals.splice(checkboxValIndex, 1)
         } else {
-          this.checkedCheckboxVals.push(checkboxVal)
+          this.welfareCheckboxVals.push(checkboxVal)
         }
       },
       checkboxIsChecked (checkboxVal) {
-        const checkboxValIndex = this.checkedCheckboxVals.indexOf(checkboxVal)
+        const checkboxValIndex = this.welfareCheckboxVals.indexOf(checkboxVal)
 
         if (checkboxValIndex > -1) {
           return true
@@ -440,6 +446,15 @@
   .page {
     &__content {
       padding: tr(15px) tr(30px) tr(80px);
+      &__welfare {
+        padding: tr(15px) 0;
+        &__title {
+          width: tr(200px);
+        }
+      }
+    }
+    .welfare-checkbox {
+      margin-bottom: tr(30px);
     }
   }
 </style>

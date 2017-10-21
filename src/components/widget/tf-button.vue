@@ -99,4 +99,36 @@
       @include set-btn-style($cl-gray, $cl-gray, $cl-white);
     }
   }
+  [data-dpr="2"]{
+    .tf-btn {
+      &.xsm {
+        font-size: 24px;
+      }
+      &.sm {
+        font-size: 30px;
+      }
+      &.md {
+        font-size: 36px;
+      }
+      &.lg {
+        font-size: 36px;
+      }
+    }
+  }
+  [data-dpr="3"]{
+    .tf-btn {
+      &.xsm {
+          font-size: 36px;
+      }
+      &.sm {
+        font-size: 45px;
+        }
+      &.md {
+        font-size: 54px;
+        }
+      &.lg {
+        font-size: 54px;
+        }
+      }
+    }
 </style>

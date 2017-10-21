@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="list">
-          <div class="list__item">
+          <div class="list__item" @click="$router.push('/center/candidate/overview')">
             <div class="fx-align-center">
               <i class="iconfont icon-gailan cl-green fz-62"></i>
               <span class="list__item__text">概览</span>

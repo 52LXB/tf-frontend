@@ -23,7 +23,7 @@
       :no-border="true">
     </tf-textarea>
 
-    <tf-radio 
+    <tf-radio
       v-for="(item, index) in radioList"
       :checked="radioIsChecked(item.value)"
       :key="index"
@@ -111,7 +111,6 @@
           value: 2,
           name: '女'
         }],
-
         checkedCheckboxVals: [],
         checkboxList: [{
           value: 1,

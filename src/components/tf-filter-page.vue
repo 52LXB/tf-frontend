@@ -14,6 +14,7 @@
 
 <script>
   export default {
+    name: 'TfFilterPage',
     data () {
       return {
         filterForm: [
