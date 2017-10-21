@@ -45,6 +45,9 @@
   }
 }
 
+.pswp--supports-fs .pswp__button--fs {
+  display: none !important;
+}
 .vux__datetime {
   .weui-cell__ft {
     padding-left: tr(200px);
